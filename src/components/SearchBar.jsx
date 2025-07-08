@@ -5,7 +5,7 @@ const SearchBar = () => (
     <input
       type="text"
       placeholder="Search for products, brands and more"
-      className="flex-1 px-4 py-2 text-sm outline-none"
+      className="flex-1 px-3 py-3 text-sm outline-none"
     />
     <button
       type="submit"

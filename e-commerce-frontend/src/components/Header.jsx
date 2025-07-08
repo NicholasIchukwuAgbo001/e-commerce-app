@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -27,9 +27,9 @@ const Header = () => {
 
 
       <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-4 gap-4">
-        <a href="index.html">
+        <Link>
           <img src="jumia.png" alt="Logo" className="h-10 object-contain" />
-        </a>
+        </Link>
 
         <div className="flex flex-wrap gap-4 items-center justify-center text-sm">
           <div className="flex items-center gap-1">
@@ -52,23 +52,23 @@ const Header = () => {
             className="flex-grow px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
           <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 rounded-r-lg">
-            <ion-icon name="search-outline" class="text-xl"></ion-icon>
+            <ion-icon name="search-outline"></ion-icon>
           </button>
         </div>
 
         <div className="flex items-center gap-4 text-sm">
-          <a href="login.html" className="flex items-center gap-1 hover:text-orange-500">
+          <Link className="flex items-center gap-1 hover:text-orange-500">
             <ion-icon name="person-add-outline" class="text-xl"></ion-icon>
             <span>Account</span>
-          </a>
+          </Link>
           <div className="flex items-center gap-1 hover:text-orange-500">
             <ion-icon name="chatbubble-outline" class="text-xl"></ion-icon>
             <span>Support</span>
           </div>
-          <a href="cart.html" className="relative flex items-center gap-1 hover:text-orange-500">
+          <Link className="relative flex items-center gap-1 hover:text-orange-500">
             <ion-icon name="cart-outline" class="text-xl"></ion-icon>
             <span className="absolute -top-2 -right-2 text-xs bg-orange-500 text-white rounded-full px-1">0</span>
-          </a>
+          </Link>
           <button className="text-sm text-red-500 hover:underline">Logout</button>
         </div>
       </div>

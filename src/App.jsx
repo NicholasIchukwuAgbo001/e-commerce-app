@@ -1,10 +1,14 @@
-import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
 
 const App = () => {
   return (
-    <div className='text-yellow-500'>
-      Hello Vite
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </BrowserRouter>
+
   )
 }
 

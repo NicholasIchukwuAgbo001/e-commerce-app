@@ -48,12 +48,17 @@ const FooterLinksSection = () => {
   return (
     <>
       {sections.map((section, index) => (
-        <div key={index}>
-          <h3 className="font-semibold mb-3 text-lg">{section.title}</h3>
-          <ul className="space-y-1">
+        <div key={index} className="w-full sm:w-auto">
+          <h3 className="font-semibold mb-3 text-lg text-white">{section.title}</h3>
+          <ul className="space-y-1 text-gray-300">
             {section.links.map((text, idx) => (
               <li key={idx}>
-                <Link to="#">{text}</Link>
+                <Link
+                  to="#"
+                  className="hover:underline hover:text-stone-100 transition-colors duration-200"
+                >
+                  {text}
+                </Link>
               </li>
             ))}
           </ul>

@@ -12,7 +12,7 @@ const UserActions = () => (
     </div>
 
     <Link className="relative flex items-center hover:text-orange-600 transition hover:bg-stone-300 rounded-full px-2">
-      <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1">0</span>
+      <span className="bg-red-500 text-white rounded-full text-xs px-1">0</span>
     </Link>
 
     <div className="hidden lg:flex flex-col items-center">

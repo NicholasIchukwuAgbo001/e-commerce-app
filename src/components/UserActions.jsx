@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom'
 
 const UserActions = () => (
   <>
-    <Link className="flex items-center gap-1 hover:text-orange-600 transition">
+    <Link to="login" className="flex items-center gap-1 hover:text-orange-600 transition hover:bg-stone-300 rounded-full px-2">
       <span>Account</span>
     </Link>
 
-    <div className="flex items-center gap-1 hover:text-orange-600 transition cursor-pointer">
+    <div  className="flex items-center gap-1 hover:text-orange-600 transition cursor-pointer hover:bg-stone-300 rounded-full px-2">
       <span>Support</span>
     </div>
 
-    <Link className="relative flex items-center hover:text-orange-600 transition">
+    <Link className="relative flex items-center hover:text-orange-600 transition hover:bg-stone-300 rounded-full px-2">
       <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-1">0</span>
     </Link>
 

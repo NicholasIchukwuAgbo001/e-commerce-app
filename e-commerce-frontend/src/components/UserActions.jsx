@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 const UserActions = () => {
   return (
     <div className="flex items-center gap-4 text-sm">
-      <Link to="/login" className="flex items-center hover:bg-stone-100 p-3 rounded-full">
+      <Link to="/login" className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
         <ion-icon name="person-add-outline" class="text-xl"></ion-icon>
         <span>Account</span>
       </Link>
-      <div className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full">
+      <div className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer">
         <ion-icon name="chatbubble-outline" class="text-xl"></ion-icon>
         <span>Support</span>
       </div>
-      <Link to="/cart" className="relative flex items-center gap-1 hover:text-orange-500">
+      <Link to="/cart" className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer">
         <ion-icon name="cart-outline" class="text-xl"></ion-icon>
         <span className="absolute -top-2 -right-2 text-xs bg-orange-500 text-white rounded-full px-1">0</span>
       </Link>

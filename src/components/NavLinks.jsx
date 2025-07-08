@@ -1,19 +1,17 @@
-import React from 'react'
+import { Link } from "react-router-dom"
 
 const NavLinks = () => (
   <>
-    <div className="flex items-center gap-1 cursor-pointer hover:text-orange-600 transition">
-      <ion-icon name="star-outline"></ion-icon>
-      <span>Best-selling</span>
+    <div className="items-center gap-1 cursor-pointer hover:text-orange-600 transition">
+      <Link>Best-selling</Link>
     </div>
 
-    <div className="flex items-center gap-1 cursor-pointer hover:text-orange-600 transition">
-      <ion-icon name="sparkles-outline"></ion-icon>
-      <span>5-star Rating</span>
+    <div className="items-center gap-1 cursor-pointer hover:text-orange-600 transition">
+      <Link>5-star Rating</Link>
     </div>
 
     <div className="cursor-pointer hover:text-orange-600 transition">
-      <span>Categories</span>
+      <Link>Categories</Link>
     </div>
   </>
 )

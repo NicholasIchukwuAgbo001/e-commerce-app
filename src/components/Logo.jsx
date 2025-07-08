@@ -1,10 +1,10 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Logo = () => (
-  <a href="index.html">
-    <img src="logo.jpeg" alt="Logo" className="w-12 h-15"
- />
-  </a>
+    <Link to="/">
+    <img src="logo.jpeg" alt="Logo" className="w-12 h-15"/>
+    </Link>
+
 )
 
 export default Logo

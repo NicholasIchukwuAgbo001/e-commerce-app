@@ -10,9 +10,7 @@ const SearchBar = () => (
     <button
       type="submit"
       className="bg-orange-500 px-4 text-white flex items-center justify-center"
-      aria-label="Search"
-    >
-      <ion-icon name="search-outline"></ion-icon>
+      aria-label="Search">
     </button>
   </div>
 )

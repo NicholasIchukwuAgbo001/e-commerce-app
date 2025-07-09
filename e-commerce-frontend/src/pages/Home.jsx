@@ -15,7 +15,6 @@ const Home = () => {
     return ()=> clearTimeout(timer);
   }, [])
 
-
   return (
     <div className="flex flex-col min-h-screen relative">
 

@@ -6,7 +6,7 @@ import UserActions from './UserActions';
 
 const Header = () => {
   return (
-    <header className="w-full bg-white shadow-md text-gray-800">
+    <header className="fixed w-full bg-white shadow-md text-gray-800 z-50">
       <TopBar />
       <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-4 gap-4">
         <Logo />

@@ -13,7 +13,7 @@ const FooterPayments = () => {
   return (
     <div>
       <h4 className="text-lg font-semibold mb-2">We accept</h4>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 cursor-pointer">
         {paymentImages.map((img, index) => (
           <img
             key={index}

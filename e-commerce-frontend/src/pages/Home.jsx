@@ -21,7 +21,7 @@ const Home = () => {
       <Header />
 
       <main className="flex-grow overflow-y-auto pt-15">
-        <div className="mx-auto max-w-6xl px-4 py-6">
+        <div className="mx-auto max-w-7xl py-6">
           <Outlet />
         </div>
       </main>

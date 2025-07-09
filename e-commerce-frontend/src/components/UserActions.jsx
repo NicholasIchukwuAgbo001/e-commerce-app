@@ -7,15 +7,21 @@ const UserActions = () => {
         <ion-icon name="person-add-outline" class="text-xl"></ion-icon>
         <span>Account</span>
       </Link>
-      <div className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer">
+
+      <a
+        href="https://wa.me/07058705863"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer"
+      >
         <ion-icon name="chatbubble-outline" class="text-xl"></ion-icon>
         <span>Support</span>
-      </div>
+      </a>
+
       <Link to="/cart" className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer">
         <ion-icon name="cart-outline" class="text-xl"></ion-icon>
         <span className="absolute -top-2 -right-2 text-xs bg-orange-500 text-white rounded-full px-1">0</span>
       </Link>
-      <button className="text-sm text-red-500 hover:underline">Logout</button>
     </div>
   );
 };

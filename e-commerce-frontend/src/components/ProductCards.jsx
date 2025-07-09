@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
     
       <div className="flex items-center justify-between mt-2">
         <p className="text-lg font-bold text-white bg-orange-500 py-1 px-4 rounded-md">${product.price}</p>
-        <p className="text-yellow-600 text-sm bg-green-100 py-1 px-3 rounded-md">⭐⭐⭐ {product.rating}</p> 
+        <p className="text-yellow-600 text-sm bg-green-100 py-1 px-3 rounded-md">⭐ {product.rating}</p> 
       </div>
 
       <button

@@ -20,6 +20,8 @@ const Login = () => {
 
       {isLoading && <Loader />}
 
+      <Header />
+
       <main className="flex-grow flex items-center justify-center p-6 pt-40">
         <div className="w-full max-w-md bg-stone-100 shadow-lg rounded-lg p-6">
           <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
@@ -62,6 +64,8 @@ const Login = () => {
           </p>
         </div>
       </main>
+
+      <Footer />
 
     </div>
   );

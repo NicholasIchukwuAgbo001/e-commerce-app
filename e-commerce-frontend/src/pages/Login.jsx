@@ -12,7 +12,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  // Show loader briefly on page load
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -20,31 +19,26 @@ const Login = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setError('');
+ const handleLogin = (e) => {
+  e.preventDefault();
+  setError('');
 
-    // Get users from localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+  const users = JSON.parse(localStorage.getItem('users')) || [];
 
-    // Check if user with matching phone and password exists
-    const user = users.find((u) => u.phone === phone && u.password === password);
+  const user = users.find((u) => u.phone === phone && u.password === password);
 
-    if (user) {
-      // Save current user to localStorage
-      localStorage.setItem('currentUser', JSON.stringify({ phone, loggedIn: true }));
+  if (user) {
+    localStorage.setItem('currentUser', JSON.stringify({ phone, loggedIn: true }));
 
-      // Navigate to dashboard
-      navigate('/dashboard', { replace: true });
-    } else {
-      setError('Invalid phone number or password.');
-    }
-  };
-
-  if (isLoading) return <Loader />;
+    navigate('/');
+  } else {
+    setError('Invalid phone number or password.');
+  }
+};
 
   return (
     <div className="flex flex-col min-h-screen">
+      {isLoading && <Loader />}
       <Header />
 
       <main className="flex-grow flex items-center justify-center p-6 pt-40">

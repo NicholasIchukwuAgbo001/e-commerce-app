@@ -25,7 +25,6 @@ const Signup = () => {
     e.preventDefault();
     setError('');
 
-    // Check for existing users in localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     const userExists = users.find((u) => u.phone === phone);
@@ -34,19 +33,16 @@ const Signup = () => {
       return;
     }
 
-    // Add new user
     const newUser = { fullName, email, phone, password };
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
 
-    // Redirect to login
     navigate('/login', { replace: true });
   };
 
-  if (isLoading) return <Loader />;
-
   return (
     <div className="flex flex-col min-h-screen">
+      {isLoading && <Loader />}
       <Header />
 
       <main className="flex-grow flex items-center justify-center p-6 pt-40">

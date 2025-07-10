@@ -14,13 +14,12 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) return <Loader />;
-
   return (
-    <div className="flex flex-col min-h-screen relative">
+    <div className="flex flex-col min-h-screen">
+      {isLoading && <Loader />}
       <Header />
 
-      <main className="flex-grow overflow-y-auto pt-15">
+      <main className="flex-grow overflow-y-auto pt-8 px-4">
         <div className="mx-auto max-w-7xl py-6">
           <Outlet />
         </div>

@@ -25,7 +25,7 @@ const Login = () => {
 
   const users = JSON.parse(localStorage.getItem('users')) || [];
 
-  const user = users.find((u) => u.phone === phone && u.password === password);
+  const user = users.find((userInfo) => userInfo.phone === phone && userInfo.password === password);
 
   if (user) {
     localStorage.setItem('currentUser', JSON.stringify({ phone, loggedIn: true }));

@@ -6,13 +6,13 @@ const UserActions = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
-    navigate("/login"); // Redirect after logout
+    navigate("/login"); 
   };
 
   return (
     <div className="flex items-center gap-4 text-sm">
 
-      {/* Support link (always visible) */}
+     
       <a
         href="https://wa.me/+2347058705863"
         target="_blank"
@@ -23,7 +23,6 @@ const UserActions = () => {
         <span>Support</span>
       </a>
 
-      {/* Cart (always visible for now, count static) */}
       <Link
         to="/cart"
         className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer"
@@ -34,13 +33,11 @@ const UserActions = () => {
 
       {currentUser?.loggedIn ? (
         <>
-          {/* Account summary */}
           <div className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
             <ion-icon name="person-outline" class="text-xl"></ion-icon>
             <span>{currentUser.phone}</span>
           </div>
 
-          {/* Logout button */}
           <button
             onClick={handleLogout}
             className="hover:bg-stone-100 p-3 rounded-full cursor-pointer"
@@ -50,7 +47,7 @@ const UserActions = () => {
         </>
       ) : (
         <>
-          {/* Show Login if not logged in */}
+     
           <Link
             to="/login"
             className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer"

@@ -1,37 +1,65 @@
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import Loader from '../components/Loader';
 
 const Login = () => {
-  
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  useEffect(()=> {
-    const timer = setTimeout(()=> {
+  const navigate = useNavigate();
+
+  // Show loader briefly on page load
+  useEffect(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000)
-    return ()=> clearTimeout(timer);
-  }, [])
-  
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setError('');
+
+    // Get users from localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if user with matching phone and password exists
+    const user = users.find((u) => u.phone === phone && u.password === password);
+
+    if (user) {
+      // Save current user to localStorage
+      localStorage.setItem('currentUser', JSON.stringify({ phone, loggedIn: true }));
+
+      // Navigate to dashboard
+      navigate('/dashboard', { replace: true });
+    } else {
+      setError('Invalid phone number or password.');
+    }
+  };
+
+  if (isLoading) return <Loader />;
+
   return (
     <div className="flex flex-col min-h-screen">
-
-      {isLoading && <Loader />}
-
       <Header />
 
       <main className="flex-grow flex items-center justify-center p-6 pt-40">
         <div className="w-full max-w-md bg-stone-100 shadow-lg rounded-lg p-6">
           <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
 
-          <form className="space-y-4">
-
+          <form className="space-y-4" onSubmit={handleLogin}>
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
+              <label className="block mb-1 text-sm font-medium text-gray-700">
+                Phone Number
+              </label>
               <input
                 type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 placeholder="Enter phone number"
                 className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
@@ -39,14 +67,22 @@ const Login = () => {
             </div>
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">Password</label>
+              <label className="block mb-1 text-sm font-medium text-gray-700">
+                Password
+              </label>
               <input
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter password"
                 className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required
               />
             </div>
+
+            {error && (
+              <p className="text-sm text-red-500 text-center">{error}</p>
+            )}
 
             <button
               type="submit"
@@ -58,15 +94,14 @@ const Login = () => {
 
           <p className="mt-4 text-center text-sm text-gray-600">
             Don't have an account?{' '}
-            <Link to="/signup" className="text-blue-600 hover:underline">
+            <a href="/signup" className="text-blue-600 hover:underline">
               Signup
-            </Link>
+            </a>
           </p>
         </div>
       </main>
 
       <Footer />
-
     </div>
   );
 };

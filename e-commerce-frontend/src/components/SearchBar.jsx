@@ -1,6 +1,6 @@
 const SearchBar = ({ searchTerm, setSearchTerm }) => {
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event) => {3
     setSearchTerm(event.target.value);
   };
 

@@ -9,7 +9,7 @@ const UserActions = () => {
       </Link>
 
       <a
-        href="https://wa.me/07058705863"
+        href="https://wa.me/+2347058705863"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer"

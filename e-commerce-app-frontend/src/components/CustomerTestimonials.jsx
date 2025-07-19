@@ -1,11 +1,98 @@
-import React from 'react'
+import { useState } from "react";
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
+
+const testimonials = [
+  {
+    star: "⭐⭐⭐⭐⭐",
+    name: "Nicholas A. ✅",
+    message:
+      "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable.",
+  },
+  {
+    star: "⭐⭐⭐⭐",
+    name: "Micheal I. ✅",
+    message:
+      "Shop.co has changed the way I shop! Their curated selections and quality are unbeatable.",
+  },
+  {
+    star: "⭐⭐⭐",
+    name: "Apostle J. ✅",
+    message:
+      "I was amazed by the fast delivery and how the clothes fit perfectly. Highly recommended!",
+  },
+  {
+    star: "⭐⭐",
+    name: "Moses I. ✅.",
+    message:
+      "A shopping experience like no other. From browsing to checkout, everything felt smooth.",
+  },
+  {
+    star: "⭐⭐⭐⭐⭐",
+    name: "Chinedu U. ✅",
+    message:
+      "What I love most is their attention to detail and how they keep trends in mind. Love Shop.co!",
+  },
+  {
+    star: "⭐⭐⭐⭐",
+    name: "Majek O. ✅",
+    message:
+      "Excellent customer service and top-notch products. I'll definitely be coming back!",
+  },
+];
 
 const CustomerTestimonials = () => {
-  return (
-    <div>
-      heyyyyyyyyyy
-    </div>
-  )
-}
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleCount = 3;
 
-export default CustomerTestimonials
+  const handlePrev = () => {
+    setStartIndex((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setStartIndex((prev) =>
+      Math.min(prev + 1, testimonials.length - visibleCount)
+    );
+  };
+
+  const visibleTestimonials = testimonials.slice(
+    startIndex,
+    startIndex + visibleCount
+  );
+
+  return (
+    <div className="max-w-7xl mx-auto p-6">
+      <div className="flex justify-between items-center mb-6">
+        <button
+          onClick={handlePrev}
+          className="p-2 rounded-full border hover:bg-green-500 transition-all duration-300"
+        >
+          <HiOutlineChevronLeft className="text-xl" />
+        </button>
+
+        <h2 className="text-4xl font-bold underline">OUR HAPPY CUSTOMERS</h2>
+
+        <button
+          onClick={handleNext}
+          className="p-2 rounded-full border hover:bg-green-500 transition-all duration-300"
+        >
+          <HiOutlineChevronRight className="text-xl" />
+        </button>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {visibleTestimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="bg-white shadow-lg p-6 rounded-lg hover:scale-105 transition-all duration-500"
+          >
+            <p>{testimonial.star}</p>
+            <h3 className="font-semibold text-lg mb-2">{testimonial.name}</h3>
+            <p className="text-gray-600 text-sm italic">"{testimonial.message}"</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CustomerTestimonials;

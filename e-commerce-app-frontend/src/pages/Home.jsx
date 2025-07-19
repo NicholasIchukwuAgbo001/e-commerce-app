@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
+import Subscribe from "../components/Subscribe";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +24,7 @@ const Home = () => {
           <Outlet />
         </div>
       </main>
-
+      <Subscribe />
       <Footer />
     </div>
   );

@@ -50,7 +50,7 @@ const FooterLinksSection = () => {
               <li key={idx}>
                 <Link
                   to="#"
-                  className="hover:underline hover:text-stone-100 transition-colors duration-200 text-stone-700"
+                  className="hover:underline hover:text-stone-900 transition-colors duration-200 text-stone-700"
                 >
                   {text}
                 </Link>

@@ -1,20 +1,24 @@
-import React from 'react'
-import HeroSection from '../components/HeroSection'
+import { useEffect, useState } from 'react';
+import ProductCard from '../components/ProductCard';
 
 const ProductPage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/products?limit=92')
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data.products);
+      })
+  }, []);
+
   return (
-    <div className="pt-16">
-      <HeroSection />
-      
-      {/* Add Featured Products or Product List */}
-      <section className="max-w-7xl mx-auto px-4">
-        <h2 className="text-xl font-semibold mb-4">Featured Products</h2>
-        {/* Replace with actual product grid component */}
-        {/* <ProductGrid /> */}
-      </section>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6 pt-20">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };
 
-
-export default ProductPage
+export default ProductPage;

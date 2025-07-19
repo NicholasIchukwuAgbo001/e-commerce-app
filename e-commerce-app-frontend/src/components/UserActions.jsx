@@ -13,17 +13,6 @@ const UserActions = () => {
   return (
     <div className="flex items-center gap-4 text-sm">
 
-     
-      <a
-        href="https://wa.me/+2347058705863"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer"
-      >
-        <HiOutlineChat className="text-stone-900 text-xl" />
-        <span>Support</span>
-      </a>
-
       <Link
         to="/cart"
         className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer"

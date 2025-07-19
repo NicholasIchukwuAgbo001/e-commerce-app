@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Logo from "./Logo";
+import { FaTwitter, FaInstagram, FaFacebookF, FaGithub } from "react-icons/fa";
 
 const sections = [
   {
@@ -54,6 +54,12 @@ const FooterLinksSection = () => {
       <p className="w-48 py-5 hover:text-stone-900 transition-colors duration-200 text-stone-700">
         We have clothes that suits your style and which you're proud to wear. From women to men.
       </p>
+      <div className="flex gap-5">
+        <Link to="#" aria-label="Twitter"><FaTwitter className="text-2xl"/></Link>
+        <Link to="#" aria-label="Instagram"><FaInstagram className="text-2xl" /></Link>
+        <Link to="#" aria-label="Facebook"><FaFacebookF className="text-2xl" /></Link>
+        <Link to="#" aria-label="GitHub"><FaGithub className="text-2xl" /></Link>
+      </div>
     </div>
       {sections.map((section, index) => (
         <div key={index} className="w-full sm:w-auto">

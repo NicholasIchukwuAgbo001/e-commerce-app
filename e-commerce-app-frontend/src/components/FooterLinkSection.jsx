@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaTwitter, FaInstagram, FaFacebookF, FaGithub } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaFacebookF, FaGithub, FaWhatsapp, FaSnapchat } from "react-icons/fa";
 
 const sections = [
   {
@@ -55,10 +55,12 @@ const FooterLinksSection = () => {
         We have clothes that suits your style and which you're proud to wear. From women to men.
       </p>
       <div className="flex gap-5">
-        <Link to="#" aria-label="Twitter"><FaTwitter className="text-2xl"/></Link>
-        <Link to="#" aria-label="Instagram"><FaInstagram className="text-2xl" /></Link>
-        <Link to="#" aria-label="Facebook"><FaFacebookF className="text-2xl" /></Link>
-        <Link to="#" aria-label="GitHub"><FaGithub className="text-2xl" /></Link>
+        <Link to="#" ><FaTwitter className="text-2xl"/></Link>
+        <Link to="#" ><FaInstagram className="text-2xl" /></Link>
+        <Link to="#" ><FaFacebookF className="text-2xl" /></Link>
+        <Link to="#" ><FaGithub className="text-2xl" /></Link>
+        <Link to="#" ><FaWhatsapp className="text-2xl" /></Link>
+        <Link to="#" ><FaSnapchat className="text-2xl" /></Link>
       </div>
     </div>
       {sections.map((section, index) => (

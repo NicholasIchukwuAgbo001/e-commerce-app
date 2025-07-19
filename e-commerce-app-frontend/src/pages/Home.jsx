@@ -18,7 +18,6 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       {isLoading && <Loader />}
       <Header />
-
       <main className="flex-grow overflow-y-auto pt-8 px-4">
         <div className="mx-auto max-w-7xl py-6">
           <Outlet />

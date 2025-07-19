@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { HiOutlineUser, HiOutlineShoppingCart, HiOutlineChat} from "react-icons/hi";
 
 const UserActions = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const UserActions = () => {
         rel="noopener noreferrer"
         className="flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer"
       >
-        <ion-icon name="chatbubble-outline" class="text-xl"></ion-icon>
+        <HiOutlineChat className="text-stone-900 text-xl" />
         <span>Support</span>
       </a>
 
@@ -27,8 +28,8 @@ const UserActions = () => {
         to="/cart"
         className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer"
       >
-        <ion-icon name="cart-outline" class="text-xl"></ion-icon>
-        <span className="absolute -top-2 -right-2 text-xs bg-orange-500 text-white rounded-full px-1">0</span>
+        <HiOutlineShoppingCart className="text-stone-900 text-xl" />
+        <span className="absolute -top-2 -right-2 text-xs bg-green-500 text-white rounded-full px-1">0</span>
       </Link>
 
       {currentUser?.loggedIn ? (
@@ -52,7 +53,7 @@ const UserActions = () => {
             to="/login"
             className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer"
           >
-            <ion-icon name="person-add-outline" class="text-xl"></ion-icon>
+            <HiOutlineUser className="text-stone-900 text-xl" />
             <span>Account</span>
           </Link>
         </>

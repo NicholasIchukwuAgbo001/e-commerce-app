@@ -15,7 +15,7 @@ const HeroSection = () => {
           <h1 className="text-6xl font-bold mb-10">
             FIND CLOTHES THAT MATCHES YOUR STYLE
           </h1>
-          <p className="text-lg text-gray-400 mb-10">
+          <p className="text-lg text-gray-400 mb-10 hover:underline">
             Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
           </p>
 

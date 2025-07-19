@@ -12,7 +12,7 @@ const CustomerReactionCounter = () => {
       </div>
 
       <div>
-        <p className="text-4xl font-extrabold text-stone-800">30,000+</p>
+        <p className="text-4xl font-extrabold text-stone-800 hover:scale-x-105 transition duration-300 ease-in-out">30,000+</p>
         <span className="text-sm text-gray-600">Happy Customers</span>
       </div>
     </div>

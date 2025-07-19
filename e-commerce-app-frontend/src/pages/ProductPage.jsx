@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import HeroSection from '../components/HeroSection';
+import CustomerTestimonials from '../components/CustomerTestimonials';
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -27,6 +28,7 @@ const ProductPage = () => {
         <ProductCard key={product.id} product={product} />
       ))}
     </div>
+    <CustomerTestimonials />
     </>
   );
 };

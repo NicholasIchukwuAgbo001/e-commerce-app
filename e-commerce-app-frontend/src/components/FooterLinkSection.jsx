@@ -48,9 +48,12 @@ const FooterLinksSection = () => {
         <img
           src="SHOP.CO.png"
           alt="Shop.co Logo"
-          className="w-20 sm:w-30 md:w-30 object-contain"
+          className="w-32 sm:w-40 md:w-32 object-contain"
         />
       </Link>
+      <p className="w-48 py-5 hover:text-stone-900 transition-colors duration-200 text-stone-700">
+        We have clothes that suits your style and which you're proud to wear. From women to men.
+      </p>
     </div>
       {sections.map((section, index) => (
         <div key={index} className="w-full sm:w-auto">

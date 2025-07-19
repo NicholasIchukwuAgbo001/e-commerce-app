@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const dummyJsonApi = createApi({
+export const productApi = createApi({
   reducerPath: "dummyJsonApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com/" }),
   endpoints: (builder) => ({
@@ -10,4 +10,4 @@ export const dummyJsonApi = createApi({
   }),
 });
 
-export const { useGetAllProductsQuery} = dummyJsonApi;
+export const { useGetAllProductsQuery} = productApi;

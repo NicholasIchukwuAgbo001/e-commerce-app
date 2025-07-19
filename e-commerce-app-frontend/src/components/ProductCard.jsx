@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="flex items-center justify-between mt-2">
-        <p className="text-sm font-bold text-white bg-orange-500 hover:bg-orange-400 transition duration-200 py-1 px-4 rounded-md">
+        <p className="text-sm font-bold text-white bg-green-500 hover:bg-green-700 hover:scale-125 transition duration-200 py-1 px-4 rounded-md">
           ${product.price}
         </p>
         <p className="text-yellow-600 text-sm bg-green-100 py-1 px-3 rounded-md">
@@ -33,7 +33,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       <button
-        className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+        className="mt-4 w-full bg-stone-900 text-white py-2 rounded-md hover:bg-stone-700 transition"
         aria-label={`Add ${product.title} to cart`}
         onClick={() => console.log("Add to cart:", product.id)}
       >

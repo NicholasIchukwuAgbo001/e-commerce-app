@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const sections = [
   {
@@ -42,6 +43,15 @@ const sections = [
 const FooterLinksSection = () => {
   return (
     <>
+    <div>
+      <Link to="/" className="inline-block">
+        <img
+          src="SHOP.CO.png"
+          alt="Shop.co Logo"
+          className="w-20 sm:w-30 md:w-30 object-contain"
+        />
+      </Link>
+    </div>
       {sections.map((section, index) => (
         <div key={index} className="w-full sm:w-auto">
           <h3 className="font-semibold mb-3 text-lg text-black">{section.title}</h3>

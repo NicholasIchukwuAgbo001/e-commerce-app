@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { HiOutlineUser, HiOutlineShoppingCart, HiOutlineChat} from "react-icons/hi";
+import { HiOutlineUser, HiOutlineShoppingCart} from "react-icons/hi";
 
 const UserActions = () => {
   const navigate = useNavigate();

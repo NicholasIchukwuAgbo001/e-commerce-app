@@ -54,13 +54,13 @@ const FooterLinksSection = () => {
       <p className="w-48 py-5 hover:text-stone-900 transition-colors duration-200 text-stone-700">
         We have clothes that suits your style and which you're proud to wear. From women to men.
       </p>
-      <div className="flex gap-5">
-        <Link to="#" ><FaTwitter className="text-2xl"/></Link>
-        <Link to="#" ><FaInstagram className="text-2xl" /></Link>
-        <Link to="#" ><FaFacebookF className="text-2xl" /></Link>
-        <Link to="#" ><FaGithub className="text-2xl" /></Link>
-        <Link to="#" ><FaWhatsapp className="text-2xl" /></Link>
-        <Link to="#" ><FaSnapchat className="text-2xl" /></Link>
+      <div className="flex gap-3">
+        <Link to="#" ><FaTwitter className="text-xl"/></Link>
+        <Link to="#" ><FaInstagram className="text-xl" /></Link>
+        <Link to="#" ><FaFacebookF className="text-xl" /></Link>
+        <Link to="#" ><FaGithub className="text-xl" /></Link>
+        <Link to="#" ><FaWhatsapp className="text-xl" /></Link>
+        <Link to="#" ><FaSnapchat className="text-xl" /></Link>
       </div>
     </div>
       {sections.map((section, index) => (

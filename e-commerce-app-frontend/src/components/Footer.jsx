@@ -1,5 +1,4 @@
 import FooterLinksSection from "./FooterLinkSection";
-import FooterPayment from "./FooterPayment";
 import FooterSocials from "./FooterSocials";
 
 const Footer = () => {
@@ -11,7 +10,6 @@ const Footer = () => {
 
       <div className="flex flex-wrap justify-between items-start px-6 py-6 border-t border-stone-600 gap-8">
         <FooterSocials />
-        <FooterPayment />
       </div>
     </footer>
   );

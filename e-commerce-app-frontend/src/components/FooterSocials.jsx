@@ -1,21 +1,20 @@
-const FooterSocials = () => {
-  const icons = [
-    "logo-instagram",
-    "logo-facebook",
-    "logo-twitter",
-    "logo-youtube",
-    "logo-tiktok",
-    "logo-pinterest",
-    "logo-linkedin",
-    "logo-whatsapp",
-  ];
+const paymentImages = ["Badge", "Badges", "Badge (1)", "Badge (3)"];
 
+const FooterSocials = () => {
   return (
-    <div>
-      <h4 className="text-lg font-semibold mb-2">Follow us</h4>
-      <div className="flex flex-wrap gap-3 text-2xl stroke-red-200 cursor-pointer">
-        {icons.map((name, index) => (
-          <ion-icon key={index} name={name}></ion-icon>
+    <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 mt-6 px-4">
+      <p className="text-sm text-center md:text-left">
+        Shop.co © 2000-2023, All Rights Reserved
+      </p>
+
+      <div className="flex gap-2 flex-wrap justify-center md:justify-end">
+        {paymentImages.map((img, index) => (
+          <img
+            key={index}
+            src={`/${img}.png`}
+            alt={`${img} payment method`}
+            className="h-10 w-70 object-contain"
+          />
         ))}
       </div>
     </div>

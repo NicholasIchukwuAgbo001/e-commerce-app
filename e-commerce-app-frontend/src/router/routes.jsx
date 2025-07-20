@@ -4,6 +4,7 @@ import Login from "../auth/Login"
 import Signup from "../auth/Signup"
 import ProductPage from "../pages/ProductPage"
 import PageNotFound from "../pages/PageNotFund";
+import CartPage from "../pages/CartPage";
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/cartpage",
+    element: <CartPage />,
   },
   {
     path: "/",

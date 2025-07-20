@@ -14,7 +14,7 @@ const UserActions = () => {
     <div className="flex items-center gap-4 text-sm">
 
       <Link
-        to="/cart"
+        to="/cartpage"
         className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer"
       >
         <HiOutlineShoppingCart className="text-stone-900 text-xl" />
@@ -30,7 +30,7 @@ const UserActions = () => {
 
           <button
             onClick={handleLogout}
-            className="hover:bg-stone-100 p-3 rounded-full cursor-pointer"
+            className="hover:bg-red-300 font-semibold py-2 px-4 rounded-full cursor-pointer text-red-800 bg-red-400 "
           >
             <span>Logout</span>
           </button>

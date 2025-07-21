@@ -20,7 +20,6 @@ const Header = () => {
           <Highlights />
         </div>
         <SearchBar />
-        <UserActions />
 
         <div className="md:hidden">
           {menuOpen ? (
@@ -32,7 +31,8 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t">
+        <div className="md:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t justify-center items-center">
+          <UserActions />
           <Highlights />
         </div>
       )}

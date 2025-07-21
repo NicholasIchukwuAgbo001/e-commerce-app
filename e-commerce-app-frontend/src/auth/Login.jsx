@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 
 const Login = () => {
-  const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -31,14 +30,13 @@ const Login = () => {
     setError('');
 
     const trimmedPhone = phone.trim();
-    const trimmedName = name.trim();
     const trimmedPassword = password.trim();
 
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     const user = users.find(
       (userInfo) =>
-        userInfo.phone === trimmedPhone && userInfo.password === trimmedPassword && userInfo.name === trimmedName
+        userInfo.phone === trimmedPhone && userInfo.password === trimmedPassword
     );
 
     if (user) {
@@ -62,20 +60,6 @@ const Login = () => {
           <h2 className="text-2xl font-semibold mb-6 text-center uppercase">Login</h2>
 
           <form className="space-y-4" onSubmit={handleLogin}>
-          <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">
-                Full Name
-              </label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
-                className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-
             <div>
               <label className="block mb-1 text-sm font-medium text-gray-700">
                 Phone Number

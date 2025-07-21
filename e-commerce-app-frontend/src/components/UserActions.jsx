@@ -25,7 +25,7 @@ const UserActions = () => {
         <>
           <div className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
             <HiOutlineUser className="text-stone-900 text-xl" />
-            <span>{currentUser.name}</span>
+             <span>{currentUser.phone || "User"}</span>
           </div>
 
           <button

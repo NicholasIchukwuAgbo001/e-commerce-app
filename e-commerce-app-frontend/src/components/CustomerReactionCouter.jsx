@@ -15,7 +15,7 @@ const CustomerReactionCounter = () => {
             <CountUp end={stat.value} duration={8} separator="," />
             {stat.suffix}
           </p>
-          <span className="text-sm text-gray-600 sm:text-white">{stat.label}</span>
+          <span className="text-sm text-gray-600 sm:text-stone-500 font-light">{stat.label}</span>
         </div>
       ))}
     </div>

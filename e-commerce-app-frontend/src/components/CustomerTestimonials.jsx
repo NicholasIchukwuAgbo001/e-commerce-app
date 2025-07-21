@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 
 const testimonials = [
@@ -54,6 +54,16 @@ const CustomerTestimonials = () => {
     );
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setStartIndex((prev) =>
+        prev >= testimonials.length - visibleCount ? 0 : prev + 1
+      );
+    }, 9000); 
+
+    return () => clearInterval(interval);
+  }, []);
+
   const visibleTestimonials = testimonials.slice(
     startIndex,
     startIndex + visibleCount
@@ -64,16 +74,28 @@ const CustomerTestimonials = () => {
       <div className="flex justify-between items-center mb-6">
         <button
           onClick={handlePrev}
-          className="p-2 rounded-full border hover:bg-green-500 transition-all duration-300"
+          disabled={startIndex === 0}
+          className={`p-2 rounded-full border transition-all duration-300 ${
+            startIndex === 0
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-green-500"
+          }`}
         >
           <HiOutlineChevronLeft className="text-xl" />
         </button>
 
-        <h2 className="text-4xl font-bold underline">OUR HAPPY CUSTOMERS</h2>
+        <h2 className="text-2xl sm:text-4xl font-bold underline text-center">
+          OUR HAPPY CUSTOMERS
+        </h2>
 
         <button
           onClick={handleNext}
-          className="p-2 rounded-full border hover:bg-green-500 transition-all duration-300"
+          disabled={startIndex >= testimonials.length - visibleCount}
+          className={`p-2 rounded-full border transition-all duration-300 ${
+            startIndex >= testimonials.length - visibleCount
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:bg-green-500"
+          }`}
         >
           <HiOutlineChevronRight className="text-xl" />
         </button>
@@ -85,9 +107,11 @@ const CustomerTestimonials = () => {
             key={index}
             className="bg-white shadow-lg p-6 rounded-lg hover:scale-105 transition-all duration-500"
           >
-            <p>{testimonial.star}</p>
+            <p className="text-xl">{testimonial.star}</p>
             <h3 className="font-semibold text-lg mb-2">{testimonial.name}</h3>
-            <p className="text-gray-600 text-sm italic">"{testimonial.message}"</p>
+            <p className="text-gray-600 text-sm italic">
+              "{testimonial.message}"
+            </p>
           </div>
         ))}
       </div>

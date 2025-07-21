@@ -13,7 +13,7 @@ const SearchBar = ({ SearchItems, setSearchItem }) => {
         placeholder="Search for products..."
         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-stone-500 shadow-sm text-sm sm:text-base"
         value={SearchItems}
-        onChange={(e) => setSearchItem(e.target.value)}
+        onChange={(event) => setSearchItem(event.target.value)}
       />
     </form>
   );

@@ -32,8 +32,13 @@ const ProductCard = ({ product }) => {
         </p>
       </div>
 
+      <p>
+        <span className="text-xs text-gray-500">In Stock: </span>
+        <span className="text-sm font-semibold">{product.stock > 0 ? "Yes" : "No"}</span>
+      </p>
+
       <button
-        className="mt-4 w-full bg-stone-900 text-white py-2 rounded-md hover:bg-stone-700 transition"
+        className="mt-2 w-full bg-stone-900 text-white py-2 rounded-md hover:bg-stone-800 transition"
         aria-label={`Add ${product.title} to cart`}
         onClick={() => console.log("Add to cart:", product.id)}
       >

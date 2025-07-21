@@ -30,7 +30,7 @@ const UserActions = () => {
 
           <button
             onClick={handleLogout}
-            className="hover:bg-red-300 font-semibold py-2 px-4 rounded-full cursor-pointer text-red-800 bg-red-400 "
+            className="hover:bg-red-600 font-semibold py-2 px-4 rounded-full cursor-pointer text-white bg-red-700 "
           >
             <span>Logout</span>
           </button>

@@ -24,8 +24,8 @@ const UserActions = () => {
       {currentUser?.loggedIn ? (
         <>
           <div className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
-            <ion-icon name="person-outline" class="text-xl"></ion-icon>
-            <span>{currentUser.phone}</span>
+            <HiOutlineUser className="text-stone-900 text-xl" />
+            <span>{currentUser.name}</span>
           </div>
 
           <button

@@ -22,7 +22,6 @@ const Header = () => {
         <SearchBar />
         <UserActions />
 
-        {/* Mobile menu icon */}
         <div className="md:hidden">
           {menuOpen ? (
             <IoClose className="text-2xl cursor-pointer" onClick={() => setMenuOpen(false)} />
@@ -32,7 +31,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
       {menuOpen && (
         <div className="md:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t">
           <Highlights />

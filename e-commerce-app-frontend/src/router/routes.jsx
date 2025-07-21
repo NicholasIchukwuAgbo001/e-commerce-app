@@ -36,7 +36,7 @@ const router = createBrowserRouter([
     element: <PageNotFound />
   },
   {
-    path: "/productdetails",
+    path: "/productdetails/:id",
     element: <ProductDetails />
   }
 ]);

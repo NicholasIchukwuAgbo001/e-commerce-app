@@ -50,10 +50,9 @@ const Login = () => {
     }
   };
 
-  if (isLoading) return <Loader />;
-
   return (
     <div className="flex flex-col min-h-screen">
+      {isLoading && <Loader />}
       <Header />
 
       <main className="flex-grow flex items-center justify-center p-6 pt-40">
@@ -102,7 +101,7 @@ const Login = () => {
           </form>
 
           <p className="mt-4 text-center text-sm text-gray-600">
-            Don't have an account?
+            Don't have an account?{' '}
             <Link to="/signup" className="text-blue-600 hover:underline">
               Signup
             </Link>

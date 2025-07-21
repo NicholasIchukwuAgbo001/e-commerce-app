@@ -51,10 +51,9 @@ const Signup = () => {
     navigate('/login', { replace: true });
   };
 
-  if (isLoading) return <Loader />;
-
   return (
     <div className="flex flex-col min-h-screen">
+      {isLoading && <Loader />}
       <Header />
 
       <main className="flex-grow flex items-center justify-center p-6 pt-40">

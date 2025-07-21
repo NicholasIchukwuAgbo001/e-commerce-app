@@ -19,8 +19,12 @@ const Header = () => {
         <div className="hidden md:flex">
           <Highlights />
         </div>
-        <SearchBar />
-        <UserActions />
+
+       <SearchBar />
+
+        <div className="hidden md:flex">
+          <UserActions />
+        </div>
 
         <div className="md:hidden">
           {menuOpen ? (
@@ -32,8 +36,9 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t">
+        <div className="md:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t items-center">
           <Highlights />
+          <UserActions />
         </div>
       )}
     </header>

@@ -5,6 +5,7 @@ import Signup from "../auth/Signup"
 import ProductPage from "../pages/ProductPage"
 import PageNotFound from "../pages/PageNotFund";
 import CartPage from "../pages/CartPage";
+import ProductDetails from "../pages/ProductDetails";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: <PageNotFound />
+  },
+  {
+    path: "/productdetails",
+    element: <ProductDetails />
   }
 ]);
 

@@ -35,7 +35,6 @@ const ProductDetails = () => {
 
   return (
     <>
-    <Header />
     <motion.div
       className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8"
       initial={{ opacity: 0, y: 40 }}
@@ -172,7 +171,6 @@ const ProductDetails = () => {
       </div>
     </motion.div>
     <CustomerTestimonials />
-    <Footer />
    </>
   );
 };

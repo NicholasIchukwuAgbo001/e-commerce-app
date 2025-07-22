@@ -44,13 +44,10 @@ const FooterLinksSection = () => {
   return (
     <>
     <div>
-      <Link to="/" className="inline-block">
-        <img
-          src="SHOP.CO.png"
-          alt="Shop.co Logo"
-          className="w-32 sm:w-40 md:w-32 object-contain"
-        />
-      </Link>
+    <Link to="/" className="inline-block">
+      <h1 className="text-3xl font-extrabold">KODAK.CO</h1>
+    </Link>
+    
       <p className="w-48 py-5 hover:text-stone-900 transition-colors duration-200 text-stone-700">
         We have clothes that suits your style and which you're proud to wear. From women to men.
       </p>

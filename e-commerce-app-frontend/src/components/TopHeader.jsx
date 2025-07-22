@@ -12,7 +12,7 @@ const TopHeader = () => {
     <div className="bg-stone-900 h-8 flex items-center justify-center relative px-4">
       <p className="text-white text-sm">
         Sign up and get 20% off your first order.
-        <Link className="underline" to="/signup">
+        <Link className="underline ml-2" to="/signup">
           Sign Up Now
         </Link>
       </p>

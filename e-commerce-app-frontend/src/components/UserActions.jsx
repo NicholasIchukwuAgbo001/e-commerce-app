@@ -38,12 +38,12 @@ const UserActions = () => {
       ) : (
         <>
 
-      <div className="hover:bg-stone-100 rounded-full cursor-pointer relative group hover:underline border-t-2 border-b-2 border-r-4 border-l-4 ">
+      <div className="hover:bg-stone-400 rounded-full cursor-pointer relative group hover:underline border-t-2 border-b-2 border-r-4 border-l-4 ">
           <p className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
             <HiOutlineUser className="text-stone-900 text-xl" />
             <span>Account</span>
           </p>
-        <div className="flex flex-col gap-2 py-2 absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20">
+        <div className="flex flex-col py-2 absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20">
           <Link to="/login"  className="px-4 py-2 uppercase rounded-full hover:bg-stone-100 cursor-pointer">Login</Link>
           <Link to="/signup" className="px-4 py-2 uppercase rounded-full hover:bg-stone-100 cursor-pointer">Sign Up</Link>
         </div>

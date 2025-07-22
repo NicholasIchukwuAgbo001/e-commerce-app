@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { HiStar, HiMinus, HiPlus } from "react-icons/hi";
 import { motion } from "framer-motion";
 import Loader from "../components/Loader";
+import CustomerTestimonials from "../components/CustomerTestimonials";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -31,6 +32,7 @@ const ProductDetails = () => {
   if (isLoading || !product) return <Loader />;
 
   return (
+    <>
     <motion.div
       className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8"
       initial={{ opacity: 0, y: 40 }}
@@ -166,6 +168,8 @@ const ProductDetails = () => {
         </motion.div>
       </div>
     </motion.div>
+    <CustomerTestimonials />
+   </>
   );
 };
 

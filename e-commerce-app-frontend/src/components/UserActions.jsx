@@ -17,14 +17,14 @@ const UserActions = () => {
         to="/cartpage"
         className="relative flex items-center gap-1 hover:text-orange-500 cursor-pointer"
       >
-        <HiOutlineShoppingCart className="text-stone-900 text-xl" />
-        <span className="absolute -top-2 -right-2 text-xs bg-green-500 text-white rounded-full px-1">0</span>
+        <HiOutlineShoppingCart className="text-stone-800 text-3xl" />
+        <span className="absolute -top-3 -right-2 text-xs bg-green-600 text-white rounded-full px-2 py-1 items-center">0</span>
       </Link>
 
       {currentUser?.loggedIn ? (
         <>
           <div className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
-            <HiOutlineUser className="text-stone-900 text-xl" />
+            <HiOutlineUser className="text-stone-900 text-3xl" />
              <span>{currentUser.phone || "User"}</span>
           </div>
 
@@ -37,14 +37,17 @@ const UserActions = () => {
         </>
       ) : (
         <>
-     
-          <Link
-            to="/login"
-            className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer"
-          >
+
+      <div className="hover:bg-stone-100 rounded-full cursor-pointer relative group hover:underline border-t-2 border-b-2 border-r-4 border-l-4 ">
+          <p className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
             <HiOutlineUser className="text-stone-900 text-xl" />
             <span>Account</span>
-          </Link>
+          </p>
+        <div className="flex flex-col gap-2 py-2 absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20">
+          <Link to="/login"  className="px-4 py-2 uppercase rounded-full hover:bg-stone-100 cursor-pointer">Login</Link>
+          <Link to="/signup" className="px-4 py-2 uppercase rounded-full hover:bg-stone-100 cursor-pointer">Sign Up</Link>
+        </div>
+      </div>
         </>
       )}
     </div>

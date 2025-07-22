@@ -14,7 +14,7 @@ const Header = () => {
     <header className="fixed w-full bg-white shadow-md text-gray-800 z-50">
       <TopHeader />
 
-      <div className="flex sm:flex-row items-center justify-between px-10 py-4 gap-4">
+      <div className="flex sm:flex-row items-center justify-between px-10 py-3 gap-5">
         <Logo />
         <div className="hidden md:flex">
           <Highlights />

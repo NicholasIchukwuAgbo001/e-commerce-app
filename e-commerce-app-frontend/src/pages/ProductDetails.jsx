@@ -1,9 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { HiStar, HiMinus, HiPlus } from "react-icons/hi";
 import { motion } from "framer-motion";
 import Loader from "../components/Loader";
 import CustomerTestimonials from "../components/CustomerTestimonials";
+import Footer from "../components/Footer";
+import { IoChevronForward } from "react-icons/io5";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -33,6 +35,25 @@ const ProductDetails = () => {
 
   return (
     <>
+    <div className="flex items-center gap-2 text-gray-600 px-6 py-4 bg-white shadow-md">
+      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
+        <Link to="/">Home</Link>
+        <IoChevronForward className="text-stone-900 text-xl" />
+      </p>
+      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
+        <Link to="#">Shop</Link>
+        <IoChevronForward className="text-stone-900 text-xl" />
+      </p>
+      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
+        <Link to="#">Men</Link>
+         <IoChevronForward className="text-stone-900 text-xl" />
+      </p>
+      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
+        <Link to="#">T-Shirt</Link>
+         <IoChevronForward className="text-stone-900 text-xl" />
+      </p>
+    </div>
+
     <motion.div
       className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8"
       initial={{ opacity: 0, y: 40 }}
@@ -169,6 +190,7 @@ const ProductDetails = () => {
       </div>
     </motion.div>
     <CustomerTestimonials />
+    <Footer />
    </>
   );
 };

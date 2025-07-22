@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Loader from "../components/Loader";
 import CustomerTestimonials from "../components/CustomerTestimonials";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -171,6 +172,7 @@ const ProductDetails = () => {
       </div>
     </motion.div>
     <CustomerTestimonials />
+    <Footer />
    </>
   );
 };

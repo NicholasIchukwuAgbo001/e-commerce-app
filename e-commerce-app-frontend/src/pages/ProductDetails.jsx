@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { HiStar, HiMinus, HiPlus } from "react-icons/hi";
+import {HiMinus, HiPlus } from "react-icons/hi";
 import { motion } from "framer-motion";
 import Loader from "../components/Loader";
 import CustomerTestimonials from "../components/CustomerTestimonials";
@@ -97,11 +97,9 @@ const ProductDetails = () => {
         <h1 className="text-3xl font-extrabold uppercase text-gray-800">{product.title}</h1>
 
         <div className="flex items-center gap-1 text-yellow-500">
-          {Array(Math.round(product.rating))
-            .fill()
-            .map((_, count) => (
-              <HiStar key={count} />
-            ))}
+          {Array.from({ length: 5 }, (count, index) => (
+            <span key={index}>{index < Math.round(product.rating) ? "★" : "☆"}</span>
+          ))}
           <span className="text-sm text-gray-600 ml-2">{product.rating}/5</span>
         </div>
 

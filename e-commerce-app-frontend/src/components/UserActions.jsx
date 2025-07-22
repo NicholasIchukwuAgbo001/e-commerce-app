@@ -37,7 +37,6 @@ const UserActions = () => {
         </>
       ) : (
         <>
-
       <div className="hover:bg-stone-400 rounded-full cursor-pointer relative group hover:underline border-t-2 border-b-2 border-r-4 border-l-4 ">
           <p className="flex items-center hover:bg-stone-100 p-3 rounded-full cursor-pointer">
             <HiOutlineUser className="text-stone-900 text-xl" />

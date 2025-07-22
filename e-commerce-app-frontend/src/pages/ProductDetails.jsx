@@ -4,206 +4,172 @@ import { HiStar, HiMinus, HiPlus } from "react-icons/hi";
 import { motion } from "framer-motion";
 import Loader from "../components/Loader";
 import CustomerTestimonials from "../components/CustomerTestimonials";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-// import { useDispatch } from "react-redux";
-// import { addToCart } from "../redux/cartSlice"; // Optional Redux hook
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedSize, setSelectedSize] = useState("Large");
-  const [selectedColor, setSelectedColor] = useState("green");
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const res = await fetch(`https://dummyjson.com/products/${id}`);
-        if (!res.ok) throw new Error("Failed to fetch product");
         const data = await res.json();
         setProduct(data);
         setSelectedImage(data.thumbnail || data.images?.[0] || "");
         setIsLoading(false);
       } catch (error) {
-        setError("Product could not be loaded. Please try again.");
-        setIsLoading(false);
+        console.error("Failed to fetch product:", error);
       }
     };
 
     fetchProduct();
   }, [id]);
 
-  if (isLoading) return <Loader />;
-  if (error) return <div className="text-center text-red-600 py-10">{error}</div>;
-  if (!product) return null;
-
-  const handleAddToCart = () => {
-    console.log("Add to cart", { product, quantity, selectedSize, selectedColor });
-    // dispatch(addToCart({ ...product, quantity, selectedSize, selectedColor }));
-  };
+  if (isLoading || !product) return <Loader />;
 
   return (
     <>
+    <motion.div
+      className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex gap-4">
+        <div className="flex flex-col gap-3">
+          {product.images?.map((img, index) => (
+            <motion.img
+              key={`img-${index}`}
+              src={img}
+              alt={`img-${index}`}
+              onClick={() => setSelectedImage(img)}
+              whileHover={{ scale: 1.2 }}
+              className={`w-16 h-16 object-cover rounded cursor-pointer border ${
+                selectedImage === img ? "border-black" : "border-gray-300"
+              }`}
+            />
+          ))}
+        </div>
 
-      <Header />
+        <motion.div
+          className="flex-1"
+          key={selectedImage}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <img
+            src={selectedImage}
+            alt={product.title}
+            className="w-full rounded-xl max-h-[500px] object-contain"
+          />
+        </motion.div>
 
-      <motion.div
-        className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="flex gap-4">
-          <div className="flex flex-col gap-3">
-            {product.images?.map((img, index) => (
-              <motion.img
-                key={`img-${index}`}
-                src={img}
-                alt={`Product image ${index + 1} of ${product.title}`}
-                onClick={() => setSelectedImage(img)}
-                whileHover={{ scale: 1.2 }}
-                className={`w-16 h-16 object-cover rounded cursor-pointer border-2 ${
-                  selectedImage === img ? "border-black shadow" : "border-gray-300"
+        
+      </div>
+
+      <div className="flex-1 space-y-4">
+        <h1 className="text-3xl font-extrabold uppercase text-gray-800">{product.title}</h1>
+
+        <div className="flex items-center gap-1 text-yellow-500">
+          {Array(Math.round(product.rating))
+            .fill()
+            .map((_, count) => (
+              <HiStar key={count} />
+            ))}
+          <span className="text-sm text-gray-600 ml-2">{product.rating}/5</span>
+        </div>
+
+        <div className="text-xl font-bold">
+          ${product.price}{" "}
+          <span className="line-through text-gray-500 text-base">
+            ${Math.round(product.price * 1.15)}
+          </span>{" "}
+          <span className="text-red-500 text-sm">-15%</span>
+        </div>
+
+        <p className="text-sm text-gray-700">{product.description}</p>
+
+        <div>
+          <p className="text-sm font-semibold mb-1">Select Colors</p>
+          <div className="flex gap-2">
+            <span className="w-6 h-6 rounded-full bg-green-900 border-2 border-black" />
+            <span className="w-6 h-6 rounded-full bg-gray-700" />
+            <span className="w-6 h-6 rounded-full bg-blue-900" />
+          </div>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold mb-1 mt-3">Choose Size</p>
+          <div className="flex gap-2">
+            {["Small", "Medium", "Large", "X-Large"].map((size) => (
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                key={size}
+                onClick={() => setSelectedSize(size)}
+                className={`px-4 py-1 rounded-full text-sm border transition ${
+                  selectedSize === size
+                    ? "bg-black text-white"
+                    : "border-gray-300 text-gray-700"
                 }`}
-              />
+              >
+                {size}
+              </motion.button>
             ))}
           </div>
-
-          <motion.div
-            className="flex-1"
-            key={selectedImage}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            <img
-              src={selectedImage}
-              alt={product.title}
-              className="w-full rounded-xl max-h-[500px] object-contain"
-            />
-          </motion.div>
         </div>
 
-        <div className="flex-1 space-y-4">
-          <h1 className="text-3xl font-extrabold uppercase text-gray-800">{product.title}</h1>
-
-          <div className="flex items-center gap-1 text-yellow-500">
-            {Array(Math.round(product.rating))
-              .fill()
-              .map((_, count) => (
-                <HiStar key={count} />
-              ))}
-            <span className="text-sm text-gray-600 ml-2">{product.rating}/5</span>
-          </div>
-
-          <div className="text-xl font-bold">
-            ${product.price}{" "}
-            <span className="line-through text-gray-500 text-base">
-              ${Math.round(product.price * 1.15)}
-            </span>{" "}
-            <span className="text-red-500 text-sm">-15%</span>
-          </div>
-
-          <p className="text-sm text-gray-700">{product.description}</p>
-
-          
-          <div>
-            <p className="text-sm font-semibold mb-1">Select Color</p>
-            <div className="flex gap-2">
-              {["green", "gray", "blue"].map((color) => (
-                <span
-                  key={color}
-                  onClick={() => setSelectedColor(color)}
-                  className={`w-6 h-6 rounded-full cursor-pointer ${
-                    color === "green"
-                      ? "bg-green-900"
-                      : color === "gray"
-                      ? "bg-gray-700"
-                      : "bg-blue-900"
-                  } ${selectedColor === color ? "border-2 border-black" : "border border-gray-300"}`}
-                ></span>
-              ))}
-            </div>
-          </div>
-
-     
-          <div>
-            <p className="text-sm font-semibold mb-1 mt-3">Choose Size</p>
-            <div className="flex gap-2">
-              {["Small", "Medium", "Large", "X-Large"].map((size) => (
-                <motion.button
-                  whileTap={{ scale: 0.95 }}
-                  key={size}
-                  onClick={() => setSelectedSize(size)}
-                  className={`px-4 py-1 rounded-full text-sm border transition ${
-                    selectedSize === size
-                      ? "bg-black text-white"
-                      : "border-gray-300 text-gray-700"
-                  }`}
-                >
-                  {size}
-                </motion.button>
-              ))}
-            </div>
-          </div>
-
-      
-          <div className="flex items-center gap-4 mt-4">
-            <div className="flex items-center border border-gray-300 rounded-full px-3 py-1">
-              <button
-                onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                className="text-lg p-1"
-              >
-                <HiMinus />
-              </button>
-              <motion.span
-                key={quantity}
-                initial={{ scale: 0.7 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.2 }}
-                className="px-4"
-              >
-                {quantity}
-              </motion.span>
-              <button
-                onClick={() => setQuantity((q) => q + 1)}
-                className="text-lg p-1"
-              >
-                <HiPlus />
-              </button>
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-black text-white px-6 py-2 rounded-full"
-              onClick={handleAddToCart}
+        <div className="flex items-center gap-4 mt-4">
+          <div className="flex items-center border border-gray-300 rounded-full px-3 py-1">
+            <button
+              onClick={() => setQuantity((quant) => Math.max(1, quant - 1))}
+              className="text-lg p-1"
             >
-              Add to Cart
-            </motion.button>
+              <HiMinus />
+            </button>
+            <motion.span
+              key={quantity}
+              initial={{ scale: 0.7 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.2 }}
+              className="px-4"
+            >
+              {quantity}
+            </motion.span>
+            <button onClick={() => setQuantity((quant) => quant + 1)} className="text-lg p-1">
+              <HiPlus />
+            </button>
           </div>
 
-          <motion.div
-            className="mt-6 border-t pt-4 flex gap-8 text-sm text-gray-500"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-black text-white px-6 py-2 rounded-full"
+            onClick={() => console.log("Add to cart", { product, quantity, selectedSize })}
           >
-            <button className="text-black font-semibold">Product Details</button>
-            <button>Rating & Reviews</button>
-            <button>FAQs</button>
-          </motion.div>
+            Add to Cart
+          </motion.button>
         </div>
-      </motion.div>
 
-      <CustomerTestimonials />
-      <Footer />
-    </>
+
+        <motion.div
+          className="mt-6 border-t pt-4 flex gap-8 text-sm text-gray-500"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <button className="text-black font-semibold">Product Details</button>
+          <button>Rating & Reviews</button>
+          <button>FAQs</button>
+        </motion.div>
+      </div>
+    </motion.div>
+    <CustomerTestimonials />
+   </>
   );
 };
 

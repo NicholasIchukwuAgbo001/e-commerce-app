@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import CustomerReactionCounter from "./CustomerReactionCouter"; 
+import ProductBrands from "./ProductBrands";
 
 const HeroSection = () => {
   return (
@@ -60,14 +61,7 @@ const HeroSection = () => {
           <CustomerReactionCounter />
         </motion.div>
       </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-20 bg-black z-10 text-white flex items-center justify-around sm:text-base">
-        <span className="text-4xl font-semibold">Versace</span>
-        <span className="text-4xl uppercase font-extrabold">Zara</span>
-        <span className="text-4xl font-extralight">Gucci</span>
-        <span className="text-4xl font-semibold">Prada</span>
-        <span className="text-4xl font-thin">Calvin Klein</span>
-      </div>
+      <ProductBrands />
     </section>
   );
 };

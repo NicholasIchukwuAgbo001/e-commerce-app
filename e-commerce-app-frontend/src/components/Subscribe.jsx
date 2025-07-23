@@ -1,6 +1,6 @@
 const Subscribe = () => {
   return (
-    <div className="bg-stone-800 text-white px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 max-w-screen-lg mx-auto rounded-2xl mb-5">
+    <div className="bg-stone-800 text-white px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 max-w-screen-lg mx-auto rounded-2xl mb-5 hover:from-green-700 hover:to-green-900">
       <h1 className="text-lg md:text-5xl font-extrabold text-center md:text-left">
         Stay up to date with our latest offers...
       </h1>

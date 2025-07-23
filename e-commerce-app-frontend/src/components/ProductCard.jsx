@@ -15,6 +15,8 @@ const ProductCard = ({ product }) => {
   };
 
 
+
+
   return (
     <div className="flex flex-col border rounded-xl p-4 shadow-sm hover:shadow-md transition bg-white">
       <Link to={`/productdetails/${product.id}`}>

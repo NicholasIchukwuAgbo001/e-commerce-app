@@ -105,13 +105,16 @@ const CustomerTestimonials = () => {
         {visibleTestimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="bg-white shadow-lg p-6 rounded-lg hover:scale-105 transition-all duration-500"
+            className="bg-white p-6 rounded-lg relative overflow-hidden group shadow-lg hover:shadow-xl transform transition-transform duration-500 hover:scale-105"
           >
-            <p className="text-xl">{testimonial.star}</p>
-            <h3 className="font-semibold text-lg mb-2">{testimonial.name}</h3>
-            <p className="text-gray-600 text-sm italic">
-              "{testimonial.message}"
-            </p>
+
+            <div className="absolute inset-0 bg-gradient-to-b from-red-600 to-red-900 opacity-0 group-hover:opacity-100 transition-all duration-500 z-0"></div>
+
+            <div className="relative z-10 flex flex-col items-center text-black group-hover:text-white transition-colors duration-500">
+              <p className="text-xl">{testimonial.star}</p>
+              <h3 className="font-semibold text-lg mb-2">{testimonial.name}</h3>
+              <p className="text-sm italic">"{testimonial.message}"</p>
+            </div>
           </div>
         ))}
       </div>

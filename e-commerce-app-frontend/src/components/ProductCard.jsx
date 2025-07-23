@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../api/cartSlice";
-import { useState } from "react";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
-  const [count, setCount] = useState('');
 
   const renderStars = (rating) => {
     const stars = Math.round(rating);

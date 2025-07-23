@@ -38,6 +38,12 @@ const testimonials = [
     message:
       "Excellent customer service and top-notch products. I'll definitely be coming back!",
   },
+  {
+    star: "⭐⭐⭐⭐",
+    name: "Majek O. ✅",
+    message:
+      "Excellent customer service and top-notch products. I'll definitely be coming back!",
+  },
 ];
 
 const CustomerTestimonials = () => {

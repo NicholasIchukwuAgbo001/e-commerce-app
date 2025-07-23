@@ -1,18 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, increaseQty, decreaseQty, setCartFromLocalStorage } from "../api/cartSlice";
+import { removeFromCart, incrementQuantity, decrementQuantity } from "../api/cartSlice";
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems || []);
-
-  // Sync cart with localStorage
-  useEffect(() => {
-    const stored = localStorage.getItem("cartItems");
-    if (stored) {
-      dispatch(setCartFromLocalStorage(JSON.parse(stored)));
-    }
-  }, [dispatch]);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -26,13 +18,12 @@ const CartPage = () => {
 
   return (
     <div className="px-4 py-10 max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">🛒 My Cart</h2>
+      <h2 className="text-2xl font-bold mb-6"> My Cart</h2>
 
       {cartItems.length === 0 ? (
         <p className="text-gray-600">Your cart is empty.</p>
       ) : (
         <div className="grid gap-6 md:grid-cols-3">
-          {/* Cart Items */}
           <div className="md:col-span-2 space-y-6">
             {cartItems.map((item) => (
               <div
@@ -51,14 +42,14 @@ const CartPage = () => {
                   <div className="flex items-center mt-2 gap-3">
                     <button
                       className="w-8 h-8 border rounded text-lg"
-                      onClick={() => dispatch(decreaseQty(item.id))}
+                      onClick={() => dispatch(decrementQuantity(item.id))}
                     >
                       −
                     </button>
                     <span className="text-lg">{item.quantity}</span>
                     <button
                       className="w-8 h-8 border rounded text-lg"
-                      onClick={() => dispatch(increaseQty(item.id))}
+                      onClick={() => dispatch(incrementQuantity(item.id))}
                     >
                       +
                     </button>
@@ -75,7 +66,6 @@ const CartPage = () => {
             ))}
           </div>
 
-          {/* Summary */}
           <div className="bg-stone-50 rounded-xl p-6 shadow-md h-fit">
             <h3 className="font-semibold text-lg mb-4">Order Summary</h3>
             <div className="flex justify-between text-gray-600">

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, incrementQuantity, decrementQuantity } from "../api/cartSlice";
+import { MdDelete } from "react-icons/md"
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -37,7 +38,8 @@ const CartPage = () => {
                 />
                 <div className="flex-1">
                   <h3 className="font-semibold text-lg">{item.title}</h3>
-                  <p className="text-gray-500">${item.price.toFixed(2)}</p>
+                  <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                  <p className="text-gray-500">{item.q}</p>
 
                   <div className="flex items-center mt-2 gap-3">
                     <button
@@ -60,7 +62,7 @@ const CartPage = () => {
                   onClick={() => dispatch(removeFromCart(item.id))}
                   title="Remove item"
                 >
-                  🗑️
+                <MdDelete />
                 </button>
               </div>
             ))}
@@ -76,8 +78,19 @@ const CartPage = () => {
               <span>Total</span>
               <span>${totalAmount.toFixed(2)}</span>
             </div>
-            <button className="w-full mt-6 bg-black text-white py-2 rounded hover:opacity-90 transition">
-              Checkout
+            <form className="py-2">
+              <input 
+              type="text" 
+              name="promo" 
+              id="promo" 
+              placeholder=" Add promo code" 
+              className="py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-stone-500 shadow-sm text-sm sm:text-base"
+              required
+              />
+              <button className="bg-black text-white py-2 px-4 ml-8 rounded-full">Apply</button>
+            </form>
+            <button className="w-full bg-black text-white py-2 rounded-full hover:opacity-90 transition">
+             Go to Checkout
             </button>
           </div>
         </div>

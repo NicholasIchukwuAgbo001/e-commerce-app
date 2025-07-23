@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../api/cartSlice"; // Adjust path based on your folder structure
+import { addToCart } from "../api/cartSlice";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();

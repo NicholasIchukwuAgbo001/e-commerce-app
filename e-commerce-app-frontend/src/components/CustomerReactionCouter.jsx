@@ -11,7 +11,7 @@ const CustomerReactionCounter = () => {
     <div className="flex sm:flex-row items-center gap-10 pt-10">
       {stats.map((stat, index) => (
         <div key={index} className="text-center sm:text-left">
-          <p className="text-4xl font-extrabold text-stone-800 hover:scale-105 transition duration-300 ease-in-out">
+          <p className="text-3xl font-extrabold text-stone-800 hover:scale-105 transition duration-300 ease-in-out">
             <CountUp end={stat.value} duration={8} separator="," />
             {stat.suffix}
           </p>

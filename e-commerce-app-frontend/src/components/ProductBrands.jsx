@@ -1,13 +1,39 @@
+import { motion } from "framer-motion";
+
+const brandLogos = [
+  "versace.png",
+  "gucci.png",
+  "zaras.png",
+  "prada.png",
+  "calvin-klein.png",
+  "balenciaga.png",
+  "dior.png",
+  "burberry.png",
+];
+
 const ProductBrands = () => {
   return (
-    <div className="absolute bottom-0 left-0 w-full h-20 bg-black z-10 text-white flex items-center justify-around sm:text-base">
-    <span className="text-4xl font-semibold">Versace</span>
-    <span className="text-4xl uppercase font-extrabold">Zara</span>
-    <span className="text-4xl font-extralight">Gucci</span>
-    <span className="text-4xl font-semibold">Prada</span>
-    <span className="text-4xl font-thin">Calvin Klein</span>
+    <div className="w-full bg-black overflow-hidden py-4">
+      <motion.div
+        className="flex gap-16 items-center whitespace-nowrap"
+        animate={{ x: ["0%", "-100%"] }}
+        transition={{
+          repeat: Infinity,
+          duration: 25,
+          ease: "linear",
+        }}
+      >
+        {[...brandLogos, ...brandLogos].map((logo, index) => (
+          <img
+            key={index}
+            src={`/${logo}`}
+            alt="Brands logo"
+            className="h-8 sm:h-16 object-contain"
+          />
+        ))}
+      </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductBrands
+export default ProductBrands;

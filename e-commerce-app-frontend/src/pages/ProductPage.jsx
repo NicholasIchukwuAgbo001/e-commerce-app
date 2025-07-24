@@ -10,7 +10,7 @@ const ProductPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('https://dummyjson.com/products?limit=192');
+        const res = await fetch('https://dummyjson.com/products?limit=194');
         const data = await res.json();
         setProducts(data.products);
       } catch (error) {

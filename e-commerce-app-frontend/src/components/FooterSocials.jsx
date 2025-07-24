@@ -7,7 +7,7 @@ const FooterSocials = () => {
         Kodak.co © 2000-2025, All Rights Reserved
       </p>
 
-      <div className="flex gap-2 flex-wrap justify-center md:justify-end">
+      <div className="flex gap-2 flex-wrap justify-center md:justify-end cursor-pointer">
         {paymentImages.map((img, index) => (
           <img
             key={index}

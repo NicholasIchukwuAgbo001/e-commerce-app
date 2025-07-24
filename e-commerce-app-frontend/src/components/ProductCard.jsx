@@ -20,12 +20,12 @@ const ProductCard = ({ product }) => {
   return (
     <div className="flex flex-col border rounded-xl p-4 shadow-sm hover:shadow-md transition bg-white">
       <Link to={`/productdetails/${product.id}`}>
-        <div className="w-full h-48 overflow-hidden rounded-lg">
+        <div className="w-full h-48 overflow-hidden rounded-lg group">
           <img
             src={product.thumbnail}
             alt={product.title || "Product Image"}
             loading="lazy"
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+            className="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:rotate-1 group-hover:brightness-110"
           />
         </div>
 
@@ -36,34 +36,43 @@ const ProductCard = ({ product }) => {
           </span>
         </div>
 
-        <div className="flex items-center justify-between mt-2">
-          <p className="text-sm font-bold text-white bg-green-500 hover:bg-green-700 hover:scale-110 transition duration-200 py-1 px-4 rounded-md">
-            {new Intl.NumberFormat("en-US", {
-              style: "currency",
-              currency: "USD",
-            }).format(product.price)}
-          </p>
+        <div className="flex  justify-between mt-2">
+          <div className="flex flex-col gap-2 mt-2">
+            <p className="text-sm font-bold text-white bg-green-500 hover:bg-green-700 hover:scale-110 transition duration-200 py-1 px-4 rounded-md">
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(product.price)}
+            </p>
 
+          <p className="text-xs">
+            <span className="text-gray-500">In Stock: </span>
+            <span
+              className={`text-sm font-semibold ${
+                product.stock > 0 ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {product.stock > 0 ? product.stock : "Out of stock"}
+            </span>
+          </p>
+          </div>
+
+          <div className="flex flex-col items-end gap-3">
           <p className="text-yellow-600 text-sm bg-green-100 py-1 px-3 rounded-md">
             {renderStars(product.rating)}
             <span className="ml-1">{product.rating}</span>
           </p>
+
+         <span className="text-xs font-medium text-yellow-500 border border-yellow-600 px-2 py-0.5 rounded-full">
+            -{Math.round(product.discountPercentage)}% OFF
+          </span>
         </div>
 
-        <p className="text-xs mt-1">
-          <span className="text-gray-500">In Stock: </span>
-          <span
-            className={`text-sm font-semibold ${
-              product.stock > 0 ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {product.stock > 0 ? product.stock : "Out of stock"}
-          </span>
-        </p>
+        </div>
       </Link>
 
       <button
-        className="mt-2 w-full bg-stone-900 text-white py-2 rounded-md hover:bg-stone-800 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        className="mt-2 w-full bg-stone-800 text-white py-2 rounded-md hover:bg-green-900 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label={`Add ${product.title} to cart`}
         onClick={handleAddToCart}
         disabled={product.stock < 1}

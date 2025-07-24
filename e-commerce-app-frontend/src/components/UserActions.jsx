@@ -4,7 +4,7 @@ import { HiOutlineUser, HiOutlineShoppingCart} from "react-icons/hi";
 const UserActions = () => {
   const navigate = useNavigate();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  const   cartCount =  JSON.parse(localStorage.getItem("cartItems"))?.length || 0;
+  const   cartCount = JSON.parse(localStorage.getItem("cartItems"))?.length || 0;
 
   const handleLogout = () => {
     localStorage.removeItem("currentUser");

@@ -35,12 +35,13 @@ const ProductPage = () => {
 
       <div className="flex justify-center items-center py-10">
           <button 
-            className={`bg-stone-900 font-mono text-white px-7 py-3 rounded-full hover:bg-stone-800 transition duration-300 ${
+            className={`bg-stone-900 font-mono text-white px-7 py-3 rounded-full hover:bg-stone-700 transition duration-300 ${
               displayedProducts.length === products.length ? "opacity-60 cursor-not-allowed" : ""
             }`}
             onClick={() => setShowAll(true)}
           >
-            View All Products
+            {showAll ? "All Products Loaded" : "View All Products"}
+           
           </button>
         </div>
 

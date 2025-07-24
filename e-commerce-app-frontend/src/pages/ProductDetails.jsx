@@ -35,27 +35,8 @@ const ProductDetails = () => {
 
   return (
     <>
-    <div className="flex items-center gap-2 text-gray-600 px-6 py-4 bg-white shadow-md">
-      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
-        <Link to="/">Home</Link>
-        <IoChevronForward className="text-stone-900 text-xl" />
-      </p>
-      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
-        <Link to="#">Shop</Link>
-        <IoChevronForward className="text-stone-900 text-xl" />
-      </p>
-      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
-        <Link to="#">Men</Link>
-         <IoChevronForward className="text-stone-900 text-xl" />
-      </p>
-      <p className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
-        <Link to="#">T-Shirt</Link>
-         <IoChevronForward className="text-stone-900 text-xl" />
-      </p>
-    </div>
-
     <motion.div
-      className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8"
+      className="p-4 max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 pt-28"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -113,6 +94,8 @@ const ProductDetails = () => {
 
         <p className="text-sm text-gray-700">{product.description}</p>
 
+        <p className="text-sm text-red-700">{product.returnPolicy}</p>
+
         <div>
           <p className="text-sm font-semibold mb-1">Select Colors</p>
           <div className="flex gap-2">
@@ -167,7 +150,7 @@ const ProductDetails = () => {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-black text-white px-6 py-2 rounded-full"
+            className="bg-black text-white px-6 py-2 rounded-full hover:bg-green-900 transition duration-300"
             onClick={() => console.log("Add to cart", { product, quantity, selectedSize })}
           >
             Add to Cart
@@ -188,7 +171,6 @@ const ProductDetails = () => {
       </div>
     </motion.div>
     <CustomerTestimonials />
-    <Footer />
    </>
   );
 };

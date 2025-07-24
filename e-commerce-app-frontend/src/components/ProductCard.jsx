@@ -46,7 +46,7 @@ const ProductCard = ({ product }) => {
             </p>
 
           <p className="text-xs">
-            <span className="text-gray-500">In Stock: </span>
+            <span className="text-gray-500 underline">In Stock: </span>
             <span
               className={`text-sm font-semibold ${
                 product.stock > 0 ? "text-green-600" : "text-red-600"

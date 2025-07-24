@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
-import HeroSection from '../components/HeroSection';
-import CustomerTestimonials from '../components/CustomerTestimonials';
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
@@ -25,8 +23,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <HeroSection />
-
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 sm:px-10 pt-10">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -44,8 +41,6 @@ const ProductPage = () => {
            
           </button>
         </div>
-
-      <CustomerTestimonials />
     </>
   );
 };

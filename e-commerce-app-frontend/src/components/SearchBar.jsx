@@ -11,7 +11,7 @@ const SearchBar = ({ searchItem, setSearchItem }) => {
       <input
         type="text"
         placeholder="Search for products..."
-        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-stone-500 shadow-sm text-sm sm:text-base"
+        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-800 shadow-sm text-sm sm:text-base"
         value={searchItem}
         onChange={(event) => setSearchItem(event.target.value)}
       />

@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, incrementQuantity, decrementQuantity } from "../api/cartSlice";
 import { MdDelete } from "react-icons/md"
 import CartSummary from "../components/CartSummary";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -16,8 +14,7 @@ const CartPage = () => {
 
   return (
     <>
-    <Header />
-    <div className="px-4 py-10 pt-32 max-w-7xl mx-auto">
+    <div className="px-4 py-10 pt-14 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-6"> My Cart</h2>
 
       {cartItems.length === 0 ? (
@@ -70,7 +67,6 @@ const CartPage = () => {
         </div>
       )}
     </div>
-    <Footer />
     </>
   );
 };

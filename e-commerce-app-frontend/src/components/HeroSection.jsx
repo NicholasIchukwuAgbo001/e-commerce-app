@@ -5,15 +5,12 @@ import ProductBrands from "./ProductBrands";
 
 const HeroSection = () => {
   return (
-    <section
-      style={{ backgroundColor: "#F2F0F1" }}
-      className="relative w-full min-h-screen overflow-hidden"
-    >
+    <section style={{backgroundColor: "#F2F0F1"}} className="relative w-full min-h-screen bg-gray-100 overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 h-full">
-        {/* Left Section */}
+        
         <div className="relative z-10 flex items-center justify-center px-4 sm:px-8 md:px-10 py-10 md:py-0">
           <motion.div
-            className="max-w-2xl text-stone-900 w-full"
+            className="max-w-2xl text-stone-900"
             initial="hidden"
             animate="visible"
             variants={{
@@ -39,26 +36,21 @@ const HeroSection = () => {
               designed to bring out your individuality and cater to your sense of style.
             </motion.p>
 
-          
-            <motion.div
-              className="flex justify-center md:justify-start mb-6"
+            <motion.button
+              className="mx-auto md:mx-0 bg-stone-900 text-white px-8 py-3 sm:px-10 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition duration-300 ease-in-out hover:bg-stone-800 hover:scale-105 hover:shadow-lg"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <Link
-                to="/login"
-                className="bg-stone-900 text-white px-8 py-3 sm:px-10 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition duration-300 ease-in-out hover:bg-stone-800 hover:scale-105 hover:shadow-lg"
-              >
+              <Link to="/login" className="block w-full h-full text-center">
                 Shop Now
               </Link>
-            </motion.div>
+            </motion.button>
 
             <CustomerReactionCounter />
           </motion.div>
         </div>
 
-     
         <img
           src="/hero2.png"
           alt="Hero"
@@ -66,7 +58,6 @@ const HeroSection = () => {
         />
       </div>
 
-     
       <ProductBrands />
     </section>
   );

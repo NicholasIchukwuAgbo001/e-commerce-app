@@ -91,7 +91,7 @@ const CustomerTestimonials = () => {
         <button
           onClick={handleNext}
           disabled={startIndex >= testimonials.length - visibleCount}
-          className={`p-2 rounded-full border transition-all duration-300 ${
+          className={`rounded-full border transition-all duration-300 ${
             startIndex >= testimonials.length - visibleCount
               ? "opacity-50 cursor-not-allowed"
               : "hover:bg-green-500"

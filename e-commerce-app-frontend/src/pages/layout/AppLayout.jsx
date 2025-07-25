@@ -1,4 +1,3 @@
-// src/pages/layout/AppLayout.jsx
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
@@ -16,13 +15,13 @@ const AppLayout = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) return <AppLayoutLoader />;
+  if(isLoading) return <AppLayoutLoader />
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header onSearch={setSearchTerm} />
       <main className="flex-grow overflow-y-auto pt-14">
-        <div className="w-full mx-auto py-6">
+        <div className="mx-auto  py-6">
           <Outlet context={searchTerm} />
         </div>
       </main>

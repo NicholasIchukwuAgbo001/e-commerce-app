@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../api/cartSlice";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
-  const [addedMessage, setAddedMessage] = useState(false);
 
   const renderStars = (rating) => {
     const stars = Math.round(rating);
@@ -14,8 +13,7 @@ const ProductCard = ({ product }) => {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product));
-    setAddedMessage(true);
-    setTimeout(() => setAddedMessage(false), 2000); 
+    toast.success(`${product.title} added to cart!`);
   };
 
   return (
@@ -81,12 +79,6 @@ const ProductCard = ({ product }) => {
       >
         Add to Cart
       </button>
-  
-      {addedMessage && (
-        <div className="mt-2 text-center text-green-600 text-sm font-semibold animate-pulse">
-          ✅ Item added to cart
-        </div>
-      )}
     </div>
   );
 };

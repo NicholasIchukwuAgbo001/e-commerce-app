@@ -7,6 +7,7 @@ import Footer from "../../components/Footer";
 
 const AppLayout = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,10 +19,10 @@ const AppLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {isLoading && <Loader />}
-      <Header />
+      <Header onSearch={setSearchTerm} />
       <main className="flex-grow overflow-y-auto pt-14">
         <div className="mx-auto  py-6">
-          <Outlet />
+          <Outlet context={searchTerm} />
         </div>
       </main>
       <Subscribe />

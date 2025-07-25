@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { IoMenu, IoClose } from 'react-icons/io5';
-
 import Logo from './Logo';
 import Highlights from './HighLights';
 import SearchBar from './SearchBar';
 import UserActions from './UserActions';
 import TopHeader from './TopHeader';
 
-const Header = () => {
+const Header = ({ onSearch }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -16,11 +15,12 @@ const Header = () => {
 
       <div className="flex sm:flex-row items-center justify-between px-10 py-3 gap-5">
         <Logo />
+
         <div className="hidden md:flex">
           <Highlights />
         </div>
 
-       <SearchBar />
+        <SearchBar onSearch={onSearch} />
 
         <div className="hidden md:flex">
           <UserActions />

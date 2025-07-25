@@ -5,7 +5,7 @@ import ProductBrands from "./ProductBrands";
 
 const HeroSection = () => {
   return (
-    <section style={{backgroundColor: "#F2F0F1"}} className="relative w-full bg-gray-100 overflow-hidden">
+    <section style={{backgroundColor: "#F2F0F1"}} className="relative md:pt-10 w-full bg-gray-100 overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 h-full">
         
         <div className="relative z-10 flex items-center justify-center px-4 sm:px-8 md:px-10 py-10 md:py-0">

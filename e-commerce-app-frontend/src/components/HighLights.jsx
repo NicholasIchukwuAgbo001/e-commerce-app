@@ -3,7 +3,8 @@ import { Link } from "react-router";
 
 const Highlights = () => {
   return (
-    <div className="hidden md:flex gap-4 items-center justify-center text-sm relative">
+    <div className="flex gap-4 items-center justify-center text-sm relative">
+
       <div className="hover:bg-stone-100 py-3 px-5 rounded-full cursor-pointer underline transition-all duration-300">
         <Link to="/">Home</Link>
       </div>

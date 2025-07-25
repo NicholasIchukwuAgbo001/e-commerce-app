@@ -16,17 +16,17 @@ const Header = ({ onSearch }) => {
       <div className="flex sm:flex-row items-center justify-between px-10 py-3 gap-5">
         <Logo />
 
-        <div className="hidden lg:flex">
+        <div className="hidden md:flex">
           <Highlights />
         </div>
 
         <SearchBar onSearch={onSearch} />
 
-        <div className="hidden lg:flex">
+        <div className="hidden md:flex">
           <UserActions />
         </div>
 
-        <div className="lg:hidden">
+        <div className="md:hidden">
           {menuOpen ? (
             <IoClose className="text-2xl cursor-pointer" onClick={() => setMenuOpen(false)} />
           ) : (
@@ -36,7 +36,7 @@ const Header = ({ onSearch }) => {
       </div>
 
       {menuOpen && (
-        <div className="lg:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t items-center">
+        <div className="md:hidden bg-white px-4 py-4 flex flex-col gap-4 border-t items-center">
           <Highlights />
           <UserActions />
         </div>

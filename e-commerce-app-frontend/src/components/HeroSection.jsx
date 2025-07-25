@@ -36,16 +36,20 @@ const HeroSection = () => {
               designed to bring out your individuality and cater to your sense of style.
             </motion.p>
 
-            <motion.button
-              className="mx-auto md:mx-0 bg-stone-900 text-white px-8 py-3 sm:px-10 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition duration-300 ease-in-out hover:bg-stone-800 hover:scale-105 hover:shadow-lg"
+            <motion.div
+              className="flex justify-center md:justify-start"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <Link to="/login" className="block w-full h-full text-center">
-                Shop Now
+              <Link to="/login">
+                <button
+                  className="bg-stone-900 text-white px-8 py-3 sm:px-10 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition duration-300 ease-in-out hover:bg-stone-800 hover:scale-105 hover:shadow-lg"
+                >
+                  Shop Now
+                </button>
               </Link>
-            </motion.button>
+            </motion.div>
 
             <CustomerReactionCounter />
           </motion.div>

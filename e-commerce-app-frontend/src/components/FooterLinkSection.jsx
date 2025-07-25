@@ -44,9 +44,16 @@ const FooterLinksSection = () => {
   return (
     <>
     <div>
-    <Link to="/" className="inline-block">
-      <h1 className="text-3xl font-extrabold">KODAK.CO</h1>
-    </Link>
+      <Link to="/" className="block">
+        <div className="font-extrabold tracking-tight text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+          <span className="text-black">N</span>
+          <span className="text-amber-500">I</span>
+          <span className="text-black">K</span>
+          <span className="text-stone-700">O</span>
+          <span className="text-black">.</span>
+          <span className="text-stone-500">CO</span>
+        </div>
+      </Link>
     
       <p className="w-48 py-5 hover:text-stone-900 transition-colors duration-200 text-stone-700">
         We have clothes that suits your style and which you're proud to wear. From women to men.

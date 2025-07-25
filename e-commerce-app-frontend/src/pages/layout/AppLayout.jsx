@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
 import { useEffect, useState } from "react";
-import Loader from "../../components/Loader";
-import Subscribe from "../../components/Subscribe";
+import AppLayoutLoader from "../../components/AppLayoutLoader";
 import Footer from "../../components/Footer";
 
 const AppLayout = () => {
@@ -16,16 +15,16 @@ const AppLayout = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  if(isLoading) return <AppLayoutLoader />
+
   return (
     <div className="flex flex-col min-h-screen">
-      {isLoading && <Loader />}
       <Header onSearch={setSearchTerm} />
       <main className="flex-grow overflow-y-auto pt-14">
         <div className="mx-auto  py-6">
           <Outlet context={searchTerm} />
         </div>
       </main>
-      <Subscribe />
       <Footer />
     </div>
   );

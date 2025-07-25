@@ -4,7 +4,6 @@ const Loader = () => {
       <div className="flex flex-col items-center space-y-4">
         <div className="w-16 h-16 border-4 border-yellow-500 border-t-transparent rounded-full animate-spin"></div>
         <p className="text-yellow-500 text-lg font-semibold">Loading...</p>
-        <p className="text-yellow-500 text-3xl font-bold">Kodak.Co</p>
       </div>
     </div>
   );

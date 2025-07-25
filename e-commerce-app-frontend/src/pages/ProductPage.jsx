@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
+import Loader from '../components/Loader';
 
 const ProductPage = () => {
   const searchTerm = useOutletContext();
   const [products, setProducts] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -15,6 +17,8 @@ const ProductPage = () => {
         setProducts(data.products);
       } catch (error) {
         console.error("Failed to fetch products:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -26,6 +30,16 @@ const ProductPage = () => {
   );
 
   const displayedProducts = showAll ? filteredProducts : filteredProducts.slice(0, 52);
+
+  if (loading) return <Loader />;
+
+  if (filteredProducts.length === 0) {
+    return (
+      <div className="text-center text-gray-500 py-20 text-1xl">
+        No matching products found.
+      </div>
+    );
+  }
 
   return (
     <>

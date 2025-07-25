@@ -1,19 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, incrementQuantity, decrementQuantity } from "../api/cartSlice";
 import { MdDelete } from "react-icons/md"
 import CartSummary from "../components/CartSummary";
+import Loader from "../components/Loader";
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.cartItems || []);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
+    {isLoading && <Loader />}
     <div className="px-4 py-10 pt-14 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-6"> My Cart</h2>
 

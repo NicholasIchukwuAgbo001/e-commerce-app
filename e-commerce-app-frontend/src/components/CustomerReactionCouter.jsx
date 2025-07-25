@@ -26,7 +26,7 @@ const CustomerReactionCounter = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> 
     </section>
   );
 };

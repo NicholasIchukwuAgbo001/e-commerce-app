@@ -33,22 +33,19 @@ const ProductDetails = () => {
   };
 
 useEffect(() => {
-  console.log("Running fetchProduct useEffect for ID:", id); // 👈 Debug
-
   const fetchProduct = async () => {
     try {
       const res = await fetch(`https://dummyjson.com/products/${id}`);
       const data = await res.json();
-      console.log("Fetched product:", data); // 👈 You said this doesn't show
       setProduct(data);
       setSelectedImage(data.thumbnail || data.images?.[0] || "");
       setIsLoading(false);
     } catch (error) {
-      console.error("Fetch failed:", error); // 👈 Will show errors
+      console.error("Fetch failed:", error); 
     }
   };
 
-  if (id) fetchProduct(); // ✅ Safe guard
+  fetchProduct(); 
 }, [id]);
 
   if (isLoading || !product) return <Loader />;

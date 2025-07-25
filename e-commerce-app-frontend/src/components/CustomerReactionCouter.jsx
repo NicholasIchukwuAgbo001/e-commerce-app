@@ -2,23 +2,27 @@ import CountUp from "react-countup";
 
 const stats = [
   { value: 200, suffix: "+", label: "International Brands" },
-  { value: 2000, suffix: "+", label: "High-Quality Products" },
+  { value: 2000, suffix: "+", label: "High-Quality" },
   { value: 30000, suffix: "+", label: "Happy Customers" },
 ];
 
 const CustomerReactionCounter = () => {
   return (
-    <div className="flex sm:flex-row items-center gap-10 pt-10">
-      {stats.map((stat, index) => (
-        <div key={index} className="text-center sm:text-left">
-          <p className="text-3xl font-extrabold text-stone-800 hover:scale-105 transition duration-300 ease-in-out">
-            <CountUp end={stat.value} duration={8} separator="," />
-            {stat.suffix}
-          </p>
-          <span className="text-sm text-gray-600 sm:text-stone-500 font-light">{stat.label}</span>
+    <section className="w-full py-10">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-8 text-center sm:text-left">
+          {stats.map((stat, index) => (
+            <div key={index} className="flex flex-col items-center sm:items-start">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-stone-800 hover:scale-105 transition duration-300 ease-in-out">
+                <CountUp end={stat.value} duration={4} separator="," />
+                {stat.suffix}
+              </p>
+              <span className="mt-2 text-sm sm:text-base text-gray-600">{stat.label}</span>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </section>
   );
 };
 

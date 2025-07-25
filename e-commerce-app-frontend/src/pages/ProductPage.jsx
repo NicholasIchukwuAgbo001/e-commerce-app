@@ -1,3 +1,4 @@
+// src/pages/ProductPage.jsx
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
@@ -35,7 +36,7 @@ const ProductPage = () => {
 
   if (filteredProducts.length === 0) {
     return (
-      <div className="text-center text-gray-500 py-20 text-1xl">
+      <div className="text-center text-gray-500 py-20 text-xl">
         No matching products found.
       </div>
     );
@@ -43,7 +44,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6 sm:px-10 pt-10">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-12 py-10">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

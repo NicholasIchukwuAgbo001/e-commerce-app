@@ -29,24 +29,27 @@ const ProductDetails = () => {
       })
     );
 
-    toast.success(`${product.title} added to cart`);
+    toast.success(`${product.title} added to cart`)
   };
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await fetch(`https://dummyjson.com/products/${id}`);
-        const data = await res.json();
-        setProduct(data);
-        setSelectedImage(data.thumbnail || data.images?.[0] || "");
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Failed to fetch product:", error);
-      }
-    };
+useEffect(() => {
+  console.log("Running fetchProduct useEffect for ID:", id); // 👈 Debug
 
-    fetchProduct();
-  }, [id]);
+  const fetchProduct = async () => {
+    try {
+      const res = await fetch(`https://dummyjson.com/products/${id}`);
+      const data = await res.json();
+      console.log("Fetched product:", data); // 👈 You said this doesn't show
+      setProduct(data);
+      setSelectedImage(data.thumbnail || data.images?.[0] || "");
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Fetch failed:", error); // 👈 Will show errors
+    }
+  };
+
+  if (id) fetchProduct(); // ✅ Safe guard
+}, [id]);
 
   if (isLoading || !product) return <Loader />;
 

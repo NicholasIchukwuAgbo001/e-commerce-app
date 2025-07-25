@@ -7,7 +7,7 @@ const SearchBar = ({ onSearch, className = "" }) => {
   const handleChange = (event) => {
     const value = event.target.value;
     setQuery(value);
-    onSearch(value); 
+    onSearch(value);
   };
 
   return (

@@ -1,13 +1,16 @@
-
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { HiMinus, HiPlus } from "react-icons/hi";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../api/cartSlice"; // adjust path as needed
 import Loader from "../components/Loader";
 import CustomerTestimonials from "../components/CustomerTestimonials";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedSize, setSelectedSize] = useState("Large");
@@ -30,6 +33,19 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.thumbnail || product.images?.[0],
+        size: selectedSize,
+        quantity,
+      })
+    );
+  };
+
   if (isLoading || !product) return <Loader />;
 
   return (
@@ -40,7 +56,7 @@ const ProductDetails = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-
+ 
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex sm:flex-col gap-3 sm:overflow-y-auto max-h-[500px]">
             {product.images?.map((img, index) => (
@@ -78,7 +94,6 @@ const ProductDetails = () => {
             {product.title}
           </h1>
 
-       
           <div className="flex items-center gap-1 text-yellow-500">
             {Array.from({ length: 5 }, (_, i) => (
               <span key={i}>{i < Math.round(product.rating) ? "★" : "☆"}</span>
@@ -86,7 +101,6 @@ const ProductDetails = () => {
             <span className="text-sm text-gray-600 ml-2">{product.rating}/5</span>
           </div>
 
-   
           <div className="text-xl font-bold">
             ${product.price}
             <span className="line-through text-gray-500 text-base ml-2">
@@ -95,14 +109,13 @@ const ProductDetails = () => {
             <span className="text-red-500 text-sm ml-2">-15%</span>
           </div>
 
-     
           <p className="text-sm text-gray-700">{product.description}</p>
 
-      
           {product.returnPolicy && (
             <p className="text-sm text-red-700">{product.returnPolicy}</p>
           )}
 
+      
           <div>
             <p className="text-sm font-semibold mb-1">Select Colors</p>
             <div className="flex gap-2">
@@ -133,7 +146,7 @@ const ProductDetails = () => {
             </div>
           </div>
 
-    
+        
           <div className="flex items-center gap-4 mt-4 flex-wrap">
             <div className="flex items-center border border-gray-300 rounded-full px-3 py-1">
               <button
@@ -160,15 +173,13 @@ const ProductDetails = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.95 }}
               className="bg-black text-white px-6 py-2 rounded-full hover:bg-green-900 transition duration-300"
-              onClick={() =>
-                console.log("Add to cart", { product, quantity, selectedSize })
-              }
+              onClick={handleAddToCart}
             >
               Add to Cart
             </motion.button>
           </div>
 
-     
+
           <motion.div
             className="mt-6 border-t pt-4 flex gap-8 text-sm text-gray-500 flex-wrap"
             initial={{ opacity: 0, y: 20 }}
@@ -181,7 +192,6 @@ const ProductDetails = () => {
           </motion.div>
         </div>
       </motion.div>
-
 
       <CustomerTestimonials />
     </>

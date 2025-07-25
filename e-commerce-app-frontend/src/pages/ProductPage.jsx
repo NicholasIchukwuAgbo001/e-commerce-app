@@ -1,4 +1,3 @@
-// src/pages/ProductPage.jsx
 import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
@@ -44,7 +43,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-12 py-10">
+      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-3 py-5 lg:px-12">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

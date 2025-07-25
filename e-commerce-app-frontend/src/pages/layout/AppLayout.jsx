@@ -20,7 +20,7 @@ const AppLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header onSearch={setSearchTerm} />
-      <main className="flex-grow overflow-y-auto pt-14">
+      <main className="flex-grow overflow-y-auto pt-8">
         <div className="mx-auto  py-6">
           <Outlet context={searchTerm} />
         </div>

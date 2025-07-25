@@ -29,7 +29,9 @@ const ProductPage = () => {
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const displayedProducts = showAll ? filteredProducts : filteredProducts.slice(0, 52);
+  const displayedProducts = showAll
+    ? filteredProducts
+    : filteredProducts.slice(0, 52);
 
   if (loading) return <Loader />;
 
@@ -43,7 +45,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-3 py-5 lg:px-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-3 py-5 lg:px-12">
         {displayedProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
@@ -52,7 +54,9 @@ const ProductPage = () => {
       <div className="flex justify-center items-center py-10">
         <button
           className={`bg-stone-900 font-mono text-white px-7 py-3 rounded-full hover:bg-stone-700 transition duration-300 ${
-            displayedProducts.length === filteredProducts.length ? "opacity-60 cursor-not-allowed" : ""
+            displayedProducts.length === filteredProducts.length
+              ? "opacity-60 cursor-not-allowed"
+              : ""
           }`}
           onClick={() => setShowAll(true)}
         >

@@ -18,18 +18,18 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="flex flex-col border rounded-xl p-4 shadow-sm hover:shadow-md transition bg-white max-w-sm w-full mx-auto">
-      <div className="w-full h-48 sm:h-56 md:h-64 overflow-hidden rounded-lg group">
+      <div className="w-full h-60 sm:h-56 md:h-64 overflow-hidden rounded-lg group">
         <Link to={`/productdetails/${product.id}`}>
           <img
             src={product.thumbnail}
             alt={product.title || "Product Image"}
             loading="lazy"
-            className="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:rotate-1 group-hover:brightness-110"
+            className="w-full h-full object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-105 group-hover:brightness-110"
           />
         </Link>
       </div>
 
-      <div className="mt-3 flex flex-col gap-1">
+      <div className="mt-3 flex flex-col gap-1 px-5">
         <h3 className="text-sm md:text-base font-semibold line-clamp-2">
           {product.title}
         </h3>
@@ -38,7 +38,7 @@ const ProductCard = ({ product }) => {
         </span>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-between mt-3 gap-3 sm:gap-0">
+      <div className="flex sm:flex-row justify-between mt-3 gap-3 px-5">
         <div className="flex flex-col gap-2">
           <p className="text-sm font-bold text-white bg-green-500 hover:bg-green-700 hover:scale-110 transition duration-200 py-1 px-4 rounded-md text-center">
             {new Intl.NumberFormat("en-US", {
@@ -59,13 +59,13 @@ const ProductCard = ({ product }) => {
           </p>
         </div>
 
-        <div className="flex flex-col items-start sm:items-end gap-2">
-          <p className="text-yellow-600 text-sm bg-green-100 py-1 px-3 rounded-md text-center">
+        <div className="flex flex-col items-center  gap-2">
+          <p className="text-yellow-600 text-sm bg-green-100 p-1 rounded-md text-center">
             {renderStars(product.rating)}
             <span className="ml-1">{product.rating}</span>
           </p>
 
-          <span className="text-xs font-medium text-yellow-500 border border-yellow-600 px-2 py-0.5 rounded-full">
+          <span className="text-xs font-medium text-yellow-500 border border-yellow-600 px-2 py-0.5 rounded-full hover:text-white hover:bg-yellow-700 transition duration-200">
             -{Math.round(product.discountPercentage)}% OFF
           </span>
         </div>

@@ -12,12 +12,17 @@ const CustomerReactionCounter = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-3 sm:grid-cols-3 gap-8 text-center sm:text-left">
           {stats.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center sm:items-start">
+            <div
+              key={index}
+              className="flex flex-col items-center sm:items-start"
+            >
               <p className="text-2xl sm:text-3xl md:text-2xl font-extrabold text-stone-800 hover:scale-105 transition duration-300 ease-in-out">
                 <CountUp end={stat.value} duration={4} separator="," />
                 {stat.suffix}
               </p>
-              <span className="mt-2 text-sm sm:text-base text-gray-600">{stat.label}</span>
+              <span className="mt-2 text-sm sm:text-base text-gray-600">
+                {stat.label}
+              </span>
             </div>
           ))}
         </div>

@@ -4,7 +4,6 @@ import { HiOutlineUser, HiOutlineShoppingCart } from "react-icons/hi";
 const UserActions = () => {
   const navigate = useNavigate();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  const cartCount = JSON.parse(localStorage.getItem("cartItems"))?.length || 0;
 
   const handleLogout = () => {
     localStorage.removeItem("currentUser");
@@ -20,9 +19,6 @@ const UserActions = () => {
         aria-label="View cart"
       >
         <HiOutlineShoppingCart className="text-stone-800 text-3xl" />
-        <span className="absolute -top-2 -right-2 text-xs bg-green-600 text-white rounded-full px-2 py-0.5">
-          {cartCount}
-        </span>
       </Link>
 
       {currentUser?.loggedIn ? (

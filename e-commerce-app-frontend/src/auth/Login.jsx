@@ -32,6 +32,18 @@ const Login = () => {
     const trimmedPhone = phone.trim();
     const trimmedPassword = password.trim();
 
+    const phoneRegex = /^[0-9]{10,15}$/;
+
+    if (!phoneRegex.test(trimmedPhone)) {
+      setError('Phone number must be 10 to 15 digits.');
+      return;
+    }
+
+    if (trimmedPassword.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return;
+    }
+
     const users = JSON.parse(localStorage.getItem('users')) || [];
 
     const user = users.find(

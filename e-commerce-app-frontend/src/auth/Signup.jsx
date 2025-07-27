@@ -30,8 +30,29 @@ const Signup = () => {
     const trimmedPhone = phone.trim();
     const trimmedPassword = password.trim();
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^[0-9]{10,15}$/;
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/; 
 
+
+    if (!emailRegex.test(trimmedEmail)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    if (!phoneRegex.test(trimmedPhone)) {
+      setError('Phone number should be 10 to 15 digits long.');
+      return;
+    }
+
+    if (!passwordRegex.test(trimmedPassword)) {
+      setError(
+        'Password must be at least 6 characters long and include at least one letter and one number.'
+      );
+      return;
+    }
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
     const userExists = users.find((u) => u.phone === trimmedPhone);
     if (userExists) {
       setError('A user with this phone number already exists.');
@@ -47,9 +68,9 @@ const Signup = () => {
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
-
     navigate('/login', { replace: true });
   };
+
 
   return (
     <div className="flex flex-col min-h-screen">

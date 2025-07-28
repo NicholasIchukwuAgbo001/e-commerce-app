@@ -10,7 +10,7 @@ const Highlights = () => {
       </div>
 
       <div className="group relative flex items-center gap-1 hover:bg-stone-100 p-3 rounded-full cursor-pointer hover:underline">
-        <span>Shop</span>
+        <Link>Shop</Link>
         <IoChevronDownOutline className="text-stone-900 text-xl" />
 
         <div className="absolute top-full left-0 mt-2 w-40 bg-white border rounded-lg shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20">
@@ -23,7 +23,7 @@ const Highlights = () => {
       </div>
 
       <div className="flex items-center gap-1 hover:bg-stone-100 py-3 px-5 rounded-full cursor-pointer relative group hover:underline">
-        <span>Sale</span>
+        <Link>Sale</Link>
         <div className="absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20">
           <ul className="py-2">
             <li className="px-4 py-2 rounded-full hover:bg-stone-100 cursor-pointer">Clearance</li>
@@ -34,7 +34,7 @@ const Highlights = () => {
       </div>
 
       <div className="hover:bg-stone-100 p-3 rounded-full cursor-pointer relative group hover:underline">
-        <span>Brands</span>
+        <Link>Brands</Link>
         <div className="absolute top-full left-0 mt-2 w-48 bg-white border rounded-lg shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-20">
           <ul className="py-2">
             <li className="px-4 py-2 uppercase rounded-full hover:bg-stone-100 cursor-pointer">Adidas</li>

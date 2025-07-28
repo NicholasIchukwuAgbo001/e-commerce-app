@@ -23,7 +23,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              FIND CLOTHES THAT MATCH YOUR STYLE
+             EXPLORE PRODUCTS THAT FIT YOUR LIFE
             </motion.h1>
 
             <motion.p

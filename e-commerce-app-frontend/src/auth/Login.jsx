@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 
 const Login = () => {
@@ -120,8 +119,6 @@ const Login = () => {
           </p>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

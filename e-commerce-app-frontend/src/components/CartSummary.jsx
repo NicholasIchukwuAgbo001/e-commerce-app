@@ -11,7 +11,7 @@ const CartSummary = () => {
   return (
     <div>
     <div className="bg-stone-50 rounded-xl p-6 shadow-md h-fit">
-        <h3 className="font-semibold text-lg mb-4">Order Summary</h3>
+        <h3 className="font-semibold text-lg mb-4">Order Summary.</h3>
         <div className="flex justify-between text-gray-600">
             <span>Total Items</span>
             <span>{totalQty}</span>
